@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1574422429 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
+	<iostream>
+
+1574422429 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
+	"svgfile.h"
+	<iostream>
+	<sstream>
+
+1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
