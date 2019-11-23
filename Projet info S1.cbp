@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="fichiers.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="svgfile.cpp" />
 		<Unit filename="svgfile.h">

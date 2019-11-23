@@ -1,9 +1,10 @@
 #include <iostream>
+#include <vector>
 
-using namespace std;
+void lireFichier();
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    lireFichier();
     return 0;
 }

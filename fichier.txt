@@ -1,0 +1,5 @@
+*
+room 400 300 azure
+* ground 600 100 darkgrey
+box 200 100 camel
+* robot 500 600 black

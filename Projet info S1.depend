@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1574423609 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
+	"svgfile.h"
+	<iostream>
+	<sstream>
+
+1574423609 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
+1574425265 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+	<iostream>
+	<vector>
+
+1574425320 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+
