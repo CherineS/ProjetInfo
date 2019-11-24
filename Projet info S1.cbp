@@ -32,16 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="bloc.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="bloc.cpp" />
 		<Unit filename="bloc.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="coord.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="coord.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="fichiers.cpp" />
