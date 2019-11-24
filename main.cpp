@@ -1,11 +1,10 @@
 #include <iostream>
-#include"bloc.h"
-#include <vector>
-
-void lireFichier();
+#include "header.h"
 
 int main()
 {
-    lireFichier();
+    Bloc*racine;
+    lireFichier(racine);
+
     return 0;
 }

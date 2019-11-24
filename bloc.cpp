@@ -1,4 +1,5 @@
 #include "bloc.h"
+
 Bloc::Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur):
     m_largeur{largeur},m_hauteur{hauteur},m_x{x},m_y{y},m_nom{nom},m_couleur{couleur};
 {}
@@ -12,8 +13,13 @@ Bloc::~Bloc()
         delete blocPtr;
 }
 
+Bloc* Bloc::GetConteneur()
+{
+    return m_conteneur;
+}
 
-void bloc::ajouterbloc()
+
+void Bloc::ajouterbloc()
 {
     Bloc *bloc = new Bloc();
     m_bloc_enfant.push_back(bloc);

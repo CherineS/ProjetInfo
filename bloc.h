@@ -1,11 +1,11 @@
 #ifndef BLOC_H_INCLUDED
 #define BLOC_H_INCLUDED
-#include<vector>
-#include<string>
+
+#include "header.h"
 
 class Bloc
 {
-private :
+public :
     double m_largeur;
     double m_hauteur;
     double m_x;

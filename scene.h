@@ -1,15 +1,18 @@
 #ifndef SCENE_H_INCLUDED
 #define SCENE_H_INCLUDED
 
-class scene
-{
-private :
-    bloc m_blocprincipal;
+#include "header.h"
 
-
-public :
-    scene(bloc blocprincipal);
-
-};
+//class Bloc;
+//
+//class scene
+//{
+//private :
+//    Bloc m_blocprincipal;
+//
+//public :
+//    scene(Bloc blocprincipal);
+//
+//};
 
 #endif // SCENE_H_INCLUDED

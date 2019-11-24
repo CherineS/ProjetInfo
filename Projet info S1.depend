@@ -1,39 +1,61 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1574423609 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
-=======
+1574425320 
+
+1574617151 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
+	"svgfile.h"
+	<iostream>
+	<sstream>
+
 1574608329 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
 	<iostream>
 	"bloc.h"
 
 1574422429 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
->>>>>>> Eric
+
+1574609004 c
 	"svgfile.h"
 	<iostream>
 	<sstream>
-
-<<<<<<< HEAD
-1574423609 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
-=======
-1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
->>>>>>> Eric
 	<string>
 	<fstream>
 	<set>
 
-<<<<<<< HEAD
-1574425265 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+1574422429 D
+
+1574617151 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
+1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
+
+1574625091 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
 	<iostream>
-	<vector>
+	"header.h"
 
 1574425320 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
 	<iostream>
 	<fstream>
 	<sstream>
 	<vector>
-=======
+
 1574609004 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
 	<vector>
 	<string>
->>>>>>> Eric
+
+1574625312 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+	"scene.h"
+	"bloc.h"
+	"svgfile.h"
+
+1574625265 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\scene.h
+	"header.h"
+
+1574625203 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
+	"header.h"
 
