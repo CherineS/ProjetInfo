@@ -1,4 +1,4 @@
-#include "header.h"
+#include "bloc.h"
 
 Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color)
 {

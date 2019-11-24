@@ -29,33 +29,34 @@
 
 1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
 
-1574625091 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+1574629777 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
 	<iostream>
-	"header.h"
+	"bloc.h"
 
-1574425320 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
-	<iostream>
-	<fstream>
-	<sstream>
-	<vector>
+1574629777 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
+	"bloc.h"
 
 1574609004 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
 	<vector>
 	<string>
 
-1574625312 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
+1574629072 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
 	<iostream>
 	<vector>
 	<string>
 	<fstream>
 	<sstream>
-	"scene.h"
-	"bloc.h"
-	"svgfile.h"
 
 1574625265 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\scene.h
 	"header.h"
 
-1574625203 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
-	"header.h"
+1574630046 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+
+1574630014 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
+	"bloc.h"
 
