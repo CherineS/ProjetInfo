@@ -1,14 +1,27 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
 1574423609 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
+=======
+1574608329 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
+	<iostream>
+	"bloc.h"
+
+1574422429 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
+>>>>>>> Eric
 	"svgfile.h"
 	<iostream>
 	<sstream>
 
+<<<<<<< HEAD
 1574423609 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
+=======
+1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
+>>>>>>> Eric
 	<string>
 	<fstream>
 	<set>
 
+<<<<<<< HEAD
 1574425265 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
 	<iostream>
 	<vector>
@@ -18,4 +31,9 @@
 	<fstream>
 	<sstream>
 	<vector>
+=======
+1574609004 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
+	<vector>
+	<string>
+>>>>>>> Eric
 

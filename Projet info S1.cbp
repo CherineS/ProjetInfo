@@ -32,8 +32,29 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+<<<<<<< HEAD
 		<Unit filename="fichiers.cpp" />
+=======
+		<Unit filename="bloc.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="bloc.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="coord.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="coord.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+>>>>>>> Eric
 		<Unit filename="main.cpp" />
+		<Unit filename="scene.cpp">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="scene.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="svgfile.cpp" />
 		<Unit filename="svgfile.h">
 			<Option target="&lt;{~None~}&gt;" />

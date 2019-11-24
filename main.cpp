@@ -1,4 +1,5 @@
 #include <iostream>
+#include"bloc.h"
 #include <vector>
 
 void lireFichier();
