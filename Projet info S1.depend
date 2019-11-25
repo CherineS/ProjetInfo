@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1574425320 
+
+1574617151 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
+	"svgfile.h"
+	<iostream>
+	<sstream>
+
+1574608329 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
+	<iostream>
+	"bloc.h"
+
+1574422429 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
+
+1574609004 c
+	"svgfile.h"
+	<iostream>
+	<sstream>
+	<string>
+	<fstream>
+	<set>
+
+1574422429 D
+
+1574617151 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
+1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
+
+1574629777 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+	<iostream>
+	"bloc.h"
+
+1574629777 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
+	"bloc.h"
+
+1574609004 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
+	<vector>
+	<string>
+
+1574629072 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+
+1574625265 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\scene.h
+	"header.h"
+
+1574630046 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+
+1574630014 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
+	"bloc.h"
+

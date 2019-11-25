@@ -4,8 +4,6 @@
 #include "header.h"
 #include "svgfile.h"
 
-using namespace std;
-
 int main()
 {
         Bloc*racine;
