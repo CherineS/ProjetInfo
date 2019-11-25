@@ -10,7 +10,7 @@
 
 class Bloc
 {
-public:
+private:
 double m_largeur;
 double m_hauteur;
 double m_x;
@@ -20,6 +20,8 @@ std::string m_couleur;
 std::vector<Bloc*> m_bloc_enfant;
 Bloc* m_conteneur;
 
+friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
+friend void lireFichier(Bloc*& racine);
 
 public:
 Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
@@ -27,6 +29,7 @@ Bloc();
 ~Bloc();
 void ajouterbloc();
 Bloc* GetConteneur();
+void afficher(Svgfile& output);
 
 
 };

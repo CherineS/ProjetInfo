@@ -1,5 +1,6 @@
 #include "header.h"
 
+// Cree un nouveau bloc avec les caracteristique recuperer dans le fichier
 Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color)
 {
         Bloc* nouv = new Bloc{larg,haut,x,y,id,color};
@@ -26,26 +27,27 @@ void lireFichier(Bloc*& racine)
         }
         else
         {
-                double larg,haut,x,y;
-                bool type,premier=1;
-                std::string id, color, ligne;
+                double larg,haut,x,y; // Parametre pour bloc
+                bool type,premier=1; // Type est un bool qui nous dit si nous avont a fair a un enfant, vrais pour type = 1
+                std::string id, color, ligne; // Parametre pour bloc + ligne a l'instant t
                 std::istringstream iss{ligne};
-                Bloc* nouv;
+                Bloc* nouv = nullptr;
 
-                while(std::getline(fichierRom, ligne))
+                while(fichierRom >> id)
                 {
-                        fichierRom >> id;
 
-                        if(id!="]")
+
+                        if(id!="]") // si on ne ferme pas une relation Enfant
                         {
-                                if(id=="[")
+
+                                if(id=="[") // Si enfant
                                 {
                                         type=1;
                                         std::cout << "\nEnfant\n";
 
                                         fichierRom >> id;
                                 }
-
+                                // On recupere les info
                                 fichierRom >> x;
                                 fichierRom >> y;
                                 fichierRom >> larg;
@@ -54,8 +56,8 @@ void lireFichier(Bloc*& racine)
 
                                 std::cout << "lu\n";
 
-                                nouv=ajouterFichier(larg,haut,x,y,id,color);
-                                if(type==0)
+                                nouv=ajouterFichier(larg,haut,x,y,id,color); // on cree un bloc
+                                if(type==0)// Si c'est pas un enfant
                                 {
                                         ListeBlocs.push_back(nouv);
                                         if(premier==0)
@@ -64,7 +66,7 @@ void lireFichier(Bloc*& racine)
                                                 ListeBlocs[0]->m_conteneur->m_bloc_enfant.push_back(nouv);
                                         }
                                 }
-                                else
+                                else // si c'est un enfant
                                 {
                                         if(premier==1)
                                         {
