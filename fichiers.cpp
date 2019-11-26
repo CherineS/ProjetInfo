@@ -7,8 +7,8 @@ Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::stri
 
         std::cout << nouv->m_largeur << std::endl;
         std::cout << nouv->m_hauteur << std::endl;
-        std::cout << nouv->m_x << std::endl;
-        std::cout << nouv->m_y << std::endl;
+        std::cout << nouv->m_x1 << std::endl;
+        std::cout << nouv->m_y1 << std::endl;
         std::cout << nouv->m_nom << std::endl;
         std::cout << nouv->m_couleur << std::endl;
 
@@ -93,8 +93,8 @@ void lireFichier(Bloc*& racine)
                 }
                 ///Verification
                 std::cout << std::endl << ListeBlocs[0]->m_nom << std::endl;
-                std::cout << ListeBlocs[0]->m_x << std::endl;
-                std::cout << ListeBlocs[0]->m_y << std::endl;
+                std::cout << ListeBlocs[0]->m_x1 << std::endl;
+                std::cout << ListeBlocs[0]->m_y1 << std::endl;
                 std::cout << ListeBlocs[0]->m_couleur << std::endl;
                 std::cout << "racine : " << racine->m_nom << std::endl;
                 std::cout << "ground : " << racine->m_bloc_enfant[0]->m_nom << std::endl;
