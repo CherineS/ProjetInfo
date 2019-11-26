@@ -12,7 +12,7 @@ int main()
         lireFichier(racine);
         Svgfile svgout;
 
-
+        racine->calcul_xy_de_1_a_4(); // Initialise les point d'attache
         racine->afficher(svgout);
 
 
