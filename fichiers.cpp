@@ -29,13 +29,13 @@ void lireFichier(Bloc*& racine)
         {
                 double larg,haut,x,y; // Parametre pour bloc
                 bool type,premier=1; // Type est un bool qui nous dit si nous avont a fair a un enfant, vrais pour type = 1
-                std::string id, color, ligne; // Parametre pour bloc + ligne a l'instant t
+                std::string id, color, refpos, basepos, ligne; // Parametre pour bloc + ligne a l'instant t
+/**                std::string refpos,basepos;      **/
                 std::istringstream iss{ligne};
                 Bloc* nouv = nullptr;
 
                 while(fichierRom >> id)
                 {
-
 
                         if(id!="]") // si on ne ferme pas une relation Enfant
                         {
@@ -53,31 +53,41 @@ void lireFichier(Bloc*& racine)
                                 fichierRom >> larg;
                                 fichierRom >> haut;
                                 fichierRom >> color;
+/**                             fichierRom >> refpos;
+                                fichierRom >> basepos;          **/
 
                                 std::cout << "lu\n";
 
                                 nouv=ajouterFichier(larg,haut,x,y,id,color); // on cree un bloc
-                                if(type==0)// Si c'est pas un enfant
+/**                                nouv=ajouterFichier(larg,haut,id,color,refpos,basepos);  **/
+
+                                if(type==0)// Si ce n'est pas un enfant
                                 {
                                         ListeBlocs.push_back(nouv);
-                                        if(premier==0)
+
+                                        if(premier==0) ///Si c'est le premier
                                         {
+                                            ///L'adresse parent du nouveau bloc est la meme que le premier
                                                 ListeBlocs[ListeBlocs.size()-1]->m_conteneur=ListeBlocs[0]->m_conteneur;
+                                            ///On copie en memoire le nouveau bloc
                                                 ListeBlocs[0]->m_conteneur->m_bloc_enfant.push_back(nouv);
                                         }
                                 }
                                 else // si c'est un enfant
                                 {
-                                        if(premier==1)
+                                        if(premier==1) ///Si c'est la racine
                                         {
-                                                racine=ListeBlocs[0];
-                                                ListeBlocs[0]->m_conteneur=racine;
-                                                premier=0;
+                                                racine=ListeBlocs[0]; ///L'adresse de la racine est l'adresse du bloc actuel
+                                                racine->m_conteneur=nullptr; ///La racine n'a pas de parent
+                                                premier=0; ///Les prochaines operations n'impliquent pas directement la racine
                                         }
-                                        ListeBlocs[ListeBlocs.size()-1]->m_bloc_enfant.push_back(nouv);
+                                        ///On ajoute l'enfant
+                                        ListeBlocs[ListeBlocs.size()-1]->ajouterbloc(larg,haut,x,y,id,color);
+                                        ///On attribue l'adresse du parent a l'enfant
                                         ListeBlocs[ListeBlocs.size()-1]->m_bloc_enfant[ListeBlocs[ListeBlocs.size()-1]
-                                                                                       ->m_bloc_enfant.size()-1]
-                                        ->m_conteneur=ListeBlocs[ListeBlocs.size()-1];
+                                                                                        ->m_bloc_enfant.size()-1]
+                                                                                        ->m_conteneur=ListeBlocs[ListeBlocs.size()-1];
+                                        ///On copie l'enfant au vecteur temporaire
                                         ListeBlocs=ListeBlocs[ListeBlocs.size()-1]->m_bloc_enfant;
                                         std::cout << "Changement liste vers enfant : "
                                                   << std::endl << ListeBlocs[0]->m_nom << std::endl;
@@ -85,6 +95,7 @@ void lireFichier(Bloc*& racine)
                                 }
                         }
                         else{
+                                ///On revient au vecteur parent
                                 nouv=ListeBlocs[0]->m_conteneur;
                                 ListeBlocs.clear();
                                 ListeBlocs.shrink_to_fit();
