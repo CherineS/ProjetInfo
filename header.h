@@ -13,5 +13,6 @@
 class cmgl {};
 
 void lireFichier(Bloc*& racine);
+void menu();
 
 #endif // HEADER_H_INCLUDED
