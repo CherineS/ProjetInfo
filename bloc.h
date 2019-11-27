@@ -10,7 +10,7 @@
 
 class Bloc
 {
-    private:
+    public:
         double m_largeur;
         double m_hauteur;
         double m_x;
@@ -24,7 +24,7 @@ class Bloc
         friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
         /**friend Bloc* ajouterFichier(double& larg, double& haut, std::string& id, std::string& color, std::string& refp, std::string& basep);
         **/
-        friend void lireFichier(Bloc*& racine);
+        friend void lireFichier(Bloc*& racine,std::string& nom_fichier);
 
     public:
         Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
@@ -36,6 +36,7 @@ class Bloc
         **/
         void ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
         Bloc* GetConteneur();
+        std::vector<Bloc*> GetBlocsEnf();
         void afficher(Svgfile& output, bool& racine);
         void afficherIds(Svgfile& output, bool racine);
 

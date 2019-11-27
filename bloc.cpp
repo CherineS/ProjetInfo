@@ -29,6 +29,11 @@ Bloc* Bloc::GetConteneur()
         return m_conteneur;
 }
 
+std::vector<Bloc*> Bloc::GetBlocsEnf()
+{
+    return m_bloc_enfant;
+}
+
 
 void Bloc::ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur)
 {

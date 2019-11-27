@@ -3,12 +3,11 @@
 ///Menu
 void menu()
 {
-    Bloc*racine;
-    lireFichier(racine);
+    Bloc*racine, *copie;
 
     std::string menu="debut";
     std::string nom_fichier="debut";
-    bool ids=1;
+    bool ids=0;
 
     std::cout<<"        MENU"<<std::endl
     <<"saisir :"<<std::endl
@@ -24,45 +23,70 @@ void menu()
     do
     {
         bool premier=1;
+        std::cout<<std::endl<<"Votre choix : ";
         getline(std::cin,menu);
 
         if(menu=="load")
         {
             std::cout<<"entrer le nom du ficher (nom_fichier.rom)"<<std::endl;
             getline(std::cin,nom_fichier);
+            lireFichier(racine,nom_fichier);
             std::cout<<nom_fichier<<" loaded"<<std::endl;
         }
         else if(menu=="reload")
         {
-            std::cout<<nom_fichier<<" reloaded"<<std::endl;
+            if(nom_fichier=="debut")
+                std::cout << "Pas de fichier" << std::endl;
+            else
+            {
+                lireFichier(racine,nom_fichier);
+                std::cout<<nom_fichier<<" reloaded"<<std::endl;
+            }
         }
         else if(menu=="store")
         {
-            std::cout<<"copie enregistre"<<std::endl;
+            if(nom_fichier=="debut")
+                std::cout << "Pas de fichier" << std::endl;
+            else
+            {
+                std::cout<<"copie enregistre"<<std::endl;
+            }
         }
         else if(menu=="restore")
         {
-           std::cout<<"restoration du fichier"<<std::endl;
+            if(nom_fichier=="debut")
+                std::cout << "Pas de fichier" << std::endl;
+            else
+            {
+                std::cout<<"restauration du fichier"<<std::endl;
+            }
         }
         else if(menu=="ids")
         {
-            if(ids==1)
-            {
-                ids=0;
-                std::cout<<"masquage des ids"<<std::endl;
-            }
+            if(nom_fichier=="debut")
+                std::cout << "Pas de fichier" << std::endl;
             else
             {
-                ids=1;
-                std::cout<<"affichage des ids"<<std::endl;
+                if(ids==1)
+                {
+                    ids=0;
+                    std::cout<<"masquage des ids"<<std::endl;
+                }
+                else
+                {
+                    ids=1;
+                    std::cout<<"affichage des ids"<<std::endl;
+                }
             }
         }
         else if(menu=="rulers")
         {
             std::cout<<"affichage/masquage des axes"<<std::endl;
+            racine->GetBlocsEnf()[0]->m_x+=100;
         }
 
         ///Fonction permettant de reactualiser la sortie chaque seconde
+        if(nom_fichier!="debut")
         {
             Svgfile::s_verbose = false;
             Svgfile svgout;
@@ -91,9 +115,9 @@ Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::stri
         return nouv;
 }
 
-void lireFichier(Bloc*& racine)
+void lireFichier(Bloc*& racine, std::string& nom_fichier)
 {
-        std::ifstream fichierRom("fichier.txt");
+        std::ifstream fichierRom(nom_fichier);
         std::vector<Bloc*> ListeBlocs;
 
         if(!fichierRom)
