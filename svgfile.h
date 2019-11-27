@@ -29,6 +29,8 @@ void addText(double x, double y, double val, std::string color=defcol);
 void addGrid(double span=100.0, bool numbering=true, std::string color="lightgrey");
 void addRect(double x1, double y1, double x2, double y2,double x3, double y3, double x4, double y4,
              std::string colorFill, double thickness, std::string colorStroke);
+void addRect(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4,
+             double thickness, std::string colorStroke);
 
 
 static std::string makeRGB(int r, int g, int b);
@@ -36,6 +38,8 @@ static std::string makeRGB(int r, int g, int b);
 /// Type non copiable
 Svgfile(const Svgfile&) = delete;
 Svgfile& operator=(const Svgfile&) = delete;
+
+static bool s_verbose;
 
 private:
 std::string m_filename;

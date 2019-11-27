@@ -1,0 +1,8 @@
+room 600 400 lightblue tl tl
+[ ground 660 10 darkgrey bc bc
+[ robot 50 50 black tc tc
+]
+box 50 20 brown tr tr
+[ flower 20 0 red tc tc
+]
+[ blabla 40 50 blue ml ml
