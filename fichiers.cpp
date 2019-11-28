@@ -1,105 +1,5 @@
 #include "header.h"
 
-///Menu
-void menu()
-{
-    Bloc*racine, *copie;
-
-    std::string menu="debut";
-    std::string nom_fichier="debut";
-    bool ids=0;
-
-    std::cout<<"        MENU"<<std::endl
-    <<"saisir :"<<std::endl
-    <<"'exit'                        -pour quitter l'application"<<std::endl
-    <<"'load' 'nom du fichier.rom'   -pour charger un fichier"<<std::endl
-    <<"'reload'                      -pour charger le fichier precedemment ouvert"<<std::endl
-    <<"'store'                       -pour enregistrer une copie de l'etat actuel de la scene"<<std::endl
-    <<"'restore'                     -pour retourner a la copie precedemment enregistre"<<std::endl
-    <<"'ids'                         -afficher/cacher les ids"<<std::endl
-    <<"'rulers'                      -afficher/cacher les axes"<<std::endl;
-
-
-    do
-    {
-        bool premier=1;
-        std::cout<<std::endl<<"Votre choix : ";
-        getline(std::cin,menu);
-
-        if(menu=="load")
-        {
-            std::cout<<"entrer le nom du ficher (nom_fichier.rom)"<<std::endl;
-            getline(std::cin,nom_fichier);
-            lireFichier(racine,nom_fichier);
-            std::cout<<nom_fichier<<" loaded"<<std::endl;
-        }
-        else if(menu=="reload")
-        {
-            if(nom_fichier=="debut")
-                std::cout << "Pas de fichier" << std::endl;
-            else
-            {
-                lireFichier(racine,nom_fichier);
-                std::cout<<nom_fichier<<" reloaded"<<std::endl;
-            }
-        }
-        else if(menu=="store")
-        {
-            if(nom_fichier=="debut")
-                std::cout << "Pas de fichier" << std::endl;
-            else
-            {
-                std::cout<<"copie enregistre"<<std::endl;
-            }
-        }
-        else if(menu=="restore")
-        {
-            if(nom_fichier=="debut")
-                std::cout << "Pas de fichier" << std::endl;
-            else
-            {
-                std::cout<<"restauration du fichier"<<std::endl;
-            }
-        }
-        else if(menu=="ids")
-        {
-            if(nom_fichier=="debut")
-                std::cout << "Pas de fichier" << std::endl;
-            else
-            {
-                if(ids==1)
-                {
-                    ids=0;
-                    std::cout<<"masquage des ids"<<std::endl;
-                }
-                else
-                {
-                    ids=1;
-                    std::cout<<"affichage des ids"<<std::endl;
-                }
-            }
-        }
-        else if(menu=="rulers")
-        {
-            std::cout<<"affichage/masquage des axes"<<std::endl;
-            racine->GetBlocsEnf()[0]->m_x+=100;
-        }
-
-        ///Fonction permettant de reactualiser la sortie chaque seconde
-        if(nom_fichier!="debut")
-        {
-            Svgfile::s_verbose = false;
-            Svgfile svgout;
-            if(ids==1)
-                racine->afficherIds(svgout,premier);
-            else if(ids==0)
-                racine->afficher(svgout,premier);
-        }
-
-    }while(menu!="exit");
-}
-
-
 // Cree un nouveau bloc avec les caracteristique recuperer dans le fichier
 Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color)
 {
@@ -213,4 +113,19 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                 std::cout << "box : " << racine->m_bloc_enfant[1]->m_nom << std::endl;
                 std::cout << "flower : " << racine->m_bloc_enfant[1]->m_bloc_enfant[0]->m_nom << std::endl;
         }
+}
+
+
+Bloc* Bloc::store() ///Ne fonctionne pas correctement
+{
+    Bloc* copie = new Bloc{m_largeur,m_hauteur,m_x,m_y,m_nom,m_couleur};
+    Bloc* buffer, adresse;
+
+    for(size_t i=0;i<m_bloc_enfant.size();++i)
+    {
+        buffer=m_bloc_enfant[i]->store();
+        copie->SetBlocsEnf(buffer);
+    }
+
+    return copie;
 }

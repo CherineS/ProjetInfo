@@ -35,10 +35,20 @@ class Bloc
         /**void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
         **/
         void ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
-        Bloc* GetConteneur();
-        std::vector<Bloc*> GetBlocsEnf();
+        std::string GetNom() const;
+        std::string GetCouleur() const;
+        double GetX() const;
+        double GetY() const;
+        double GetLargeur() const;
+        double GetHauteur() const;
+        Bloc* GetConteneur() const;
+        void SetConteneur(Bloc* conteneur);
+        std::vector<Bloc*> GetBlocsEnf() const;
+        void SetBlocsEnf(Bloc* &aCopier);
         void afficher(Svgfile& output, bool& racine);
         void afficherIds(Svgfile& output, bool racine);
+        //void collisions();
+        Bloc* store();
 
 };
 

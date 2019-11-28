@@ -24,16 +24,58 @@ Bloc::~Bloc()
                 delete blocPtr;
 }
 
-Bloc* Bloc::GetConteneur()
+std::string Bloc::GetNom() const
+{
+        return m_nom;
+}
+
+std::string Bloc::GetCouleur() const
+{
+        return m_couleur;
+}
+
+double Bloc::GetX() const
+{
+        return m_x;
+}
+
+double Bloc::GetY() const
+{
+        return m_y;
+}
+
+double Bloc::GetLargeur() const
+{
+        return m_largeur;
+}
+
+double Bloc::GetHauteur() const
+{
+        return m_hauteur;
+}
+
+Bloc* Bloc::GetConteneur() const
 {
         return m_conteneur;
 }
 
-std::vector<Bloc*> Bloc::GetBlocsEnf()
+std::vector<Bloc*> Bloc::GetBlocsEnf() const
 {
     return m_bloc_enfant;
 }
 
+void Bloc::SetBlocsEnf(Bloc* &aCopier)
+{
+    Bloc *bloc = new Bloc(aCopier->GetLargeur(),aCopier->GetHauteur(),aCopier->GetX(),aCopier->GetX(),
+                          aCopier->GetNom(),aCopier->GetCouleur());
+
+    m_bloc_enfant.push_back(bloc);
+}
+
+void Bloc::SetConteneur(Bloc* conteneur)
+{
+    m_conteneur=conteneur;
+}
 
 void Bloc::ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur)
 {
@@ -64,7 +106,7 @@ void Bloc::afficher(Svgfile& output, bool& racine)
                                (*it_bloc)->m_couleur,0.15,"black");
             }
             else ///Disque
-                output.addDisk((*it_bloc)->m_x /*x*/, (*it_bloc)->m_y /*y*/, (*it_bloc)->m_largeur /*rayon*/,(*it_bloc)->m_couleur);
+                output.addDisk((*it_bloc)->m_x+(*it_bloc)->m_largeur/2 /*x*/, (*it_bloc)->m_y+(*it_bloc)->m_hauteur/2 /*y*/, (*it_bloc)->m_largeur/2 /*rayon*/,(*it_bloc)->m_couleur);
 
             if((*it_bloc)->m_bloc_enfant.size()!=0) // Si il possede des enfant
             {
@@ -83,7 +125,7 @@ void Bloc::afficherIds(Svgfile& output, bool racine)
         for(it_bloc = m_bloc_enfant.begin(); it_bloc!=m_bloc_enfant.end(); ++it_bloc)
         {
             if((*it_bloc)->m_hauteur==0) ///Contour disque
-                output.addCircle((*it_bloc)->m_x /*x*/, (*it_bloc)->m_y /*y*/, (*it_bloc)->m_largeur /*rayon*/,2,"yellow");
+                output.addCircle((*it_bloc)->m_x+(*it_bloc)->m_largeur/2 /*x*/, (*it_bloc)->m_y+(*it_bloc)->m_hauteur/2 /*y*/, (*it_bloc)->m_largeur/2 /*rayon*/,2,"yellow");
             else ///Contour d'un rectangle
             {
                 output.addRect((*it_bloc)->m_x,(*it_bloc)->m_y,(*it_bloc)->m_largeur+(*it_bloc)->m_x,(*it_bloc)->m_y,
@@ -108,3 +150,28 @@ void Bloc::afficherIds(Svgfile& output, bool racine)
                         (*it_bloc)->afficherIds(output,racine);
         }
 }
+
+/*
+void Bloc::collisions()
+{
+    std::vector<Bloc*> Freres=m_conteneur()->GetBlocsEnf();
+    for(size_t i=0; i<Freres.size();++i)
+    {
+        ///On ne considere pas les collisions avec lui meme
+        if(Freres[i]->GetNom()!=m_nom)
+        {
+            ///Si le bloc se deplace en x
+            if(m_x<=Freres[i]->GetX())
+                ///appeler fonction avancer +10
+            else if(m_x+m_largeur>=Freres[i]->GetX+Freres[i]->GetLargeur)
+                ///appeler fonction avancer -10
+
+            ///Si le bloc se deplace en y
+            if(m_y<=Freres[i]->GetY())
+                ///appeler fonction avancer -10
+            else if(m_y+m_hauteur>=Freres[i]->GetHauteur()+Freres[i]->GetHauteur())
+                ///appeler fonction avancer +10
+        }
+    }
+}
+*/
