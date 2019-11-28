@@ -38,6 +38,7 @@ class Bloc
         Bloc* GetConteneur();
         void afficher(Svgfile& output, bool& racine);
         void afficherIds(Svgfile& output, bool racine);
+        void commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots);
 
 };
 

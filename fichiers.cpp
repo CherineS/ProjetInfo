@@ -55,12 +55,15 @@ void menu()
             {
                 ids=1;
                 std::cout<<"affichage des ids"<<std::endl;
+
             }
         }
         else if(menu=="rulers")
         {
             std::cout<<"affichage/masquage des axes"<<std::endl;
         }
+
+
 
         ///Fonction permettant de reactualiser la sortie chaque seconde
         {
@@ -70,6 +73,18 @@ void menu()
                 racine->afficherIds(svgout,premier);
             else if(ids==0)
                 racine->afficher(svgout,premier);
+
+        }
+        if(menu[0]=='@')
+        {
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+    std::istringstream ligne(menu);
+    std::vector<std::string> mots;
+    std::copy(std::istream_iterator<std::string>(ligne), std::istream_iterator<std::string>(), std::back_inserter(mots));   ///sépare les mots dans un vector
+
+            racine->commandedeplacement(svgout,premier,mots);
+
         }
 
     }while(menu!="exit");
