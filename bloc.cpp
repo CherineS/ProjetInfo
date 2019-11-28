@@ -74,6 +74,7 @@ void Bloc::calcul_xy_de_1_a_4()
                         }
                         else if ((*it_bloc)->basepos=="ml")
                         {
+
                                 (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos /*x1*/;
                                 (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur /*x2*/;
                                 (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur/(double)2 /*y1*/;
