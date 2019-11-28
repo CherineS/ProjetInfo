@@ -11,6 +11,8 @@ void menu()
     std::string menu="debut";
     std::string nom_fichier="debut";
     bool ids=0;
+        racine->calcul_xy_de_1_a_4(); // Initialise les point d'attache
+        racine->afficher(svgout,1);
 
     std::cout<<"        MENU"<<std::endl
     <<"saisir :"<<std::endl

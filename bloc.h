@@ -7,49 +7,62 @@
 #include <fstream>
 #include <sstream>
 #include "svgfile.h"
+#include <map>
 
 class Bloc
 {
-    public:
-        double m_largeur;
-        double m_hauteur;
-        double m_x;
-        double m_y;
-        std::string m_nom;
-        std::string m_couleur;
-        std::vector<Bloc*> m_bloc_enfant;
-/**        std::string refpos,basepos;      **/
-        Bloc* m_conteneur;
 
-        friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
+public:
+Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
+Bloc();
+~Bloc();
+void ajouterbloc();
+Bloc* GetConteneur();
+void afficher(Svgfile& output, bool racine);
+void calcule_xy_ref_base_pos();
+void calcul_xy_de_1_a_4();
+
+private:
+double m_largeur;
+double m_hauteur;
+double m_x1; // x1 = x3
+double m_x2; // x2 = x4
+double m_y1; // y1 = y2
+double m_y3; // y3 = y4
+
+std::string m_nom;
+std::string m_couleur;
+std::vector<Bloc*> m_bloc_enfant;
+Bloc* m_conteneur;
+
+std::string refpos; // Point d'encrage du bloc parrent
+std::string basepos; // Point d'encrage du bloc enfant
+std::string endpos; // Point du bloc parrent maximal d'encrage lors de la translation
+
+//Positon d'encrage
+double x_refpos;
+double y_refpos;
+
+
+friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
+friend void lireFichier(Bloc*& racine);
         /**friend Bloc* ajouterFichier(double& larg, double& haut, std::string& id, std::string& color, std::string& refp, std::string& basep);
-        **/
-        friend void lireFichier(Bloc*& racine,std::string& nom_fichier);
 
-    public:
-        Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
         /**Bloc(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
-        **/
-        Bloc();
-        ~Bloc();
         /**void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
-        **/
-        void ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
-        std::string GetNom() const;
-        std::string GetCouleur() const;
         double GetX() const;
         double GetY() const;
+        std::string GetCouleur() const;
+        std::string GetNom() const;
         double GetLargeur() const;
+        void ajouterbloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
         double GetHauteur() const;
-        Bloc* GetConteneur() const;
         void SetConteneur(Bloc* conteneur);
         std::vector<Bloc*> GetBlocsEnf() const;
         void SetBlocsEnf(Bloc* &aCopier);
-        void afficher(Svgfile& output, bool& racine);
         void afficherIds(Svgfile& output, bool racine);
-        //void collisions();
         Bloc* store();
-
+        //void collisions();
 };
 
 
