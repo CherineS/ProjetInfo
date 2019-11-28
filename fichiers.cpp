@@ -1,20 +1,5 @@
 #include "header.h"
 
-// Cree un nouveau bloc avec les caracteristique recuperer dans le fichier
-Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color)
-{
-        Bloc* nouv = new Bloc{larg,haut,x,y,id,color};
-
-        std::cout << nouv->m_largeur << std::endl;
-        std::cout << nouv->m_hauteur << std::endl;
-        std::cout << nouv->m_x1 << std::endl;
-        std::cout << nouv->m_y1 << std::endl;
-        std::cout << nouv->m_nom << std::endl;
-        std::cout << nouv->m_couleur << std::endl;
-
-        return nouv;
-}
-
 void lireFichier(Bloc*& racine, std::string& nom_fichier)
 {
         std::ifstream fichierRom(nom_fichier);
@@ -27,10 +12,9 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
         }
         else
         {
-                double larg,haut,x,y; // Parametre pour bloc
+                double larg,haut; // Parametre pour bloc
                 bool type,premier=1; // Type est un bool qui nous dit si nous avont a fair a un enfant, vrais pour type = 1
                 std::string id, color, refpos, basepos, ligne; // Parametre pour bloc + ligne a l'instant t
-/**                std::string refpos,basepos;      **/
                 std::istringstream iss{ligne};
                 Bloc* nouv = nullptr;
 
@@ -48,18 +32,23 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                                         fichierRom >> id;
                                 }
                                 // On recupere les info
-                                fichierRom >> x;
-                                fichierRom >> y;
                                 fichierRom >> larg;
                                 fichierRom >> haut;
                                 fichierRom >> color;
-/**                             fichierRom >> refpos;
-                                fichierRom >> basepos;          **/
+                                fichierRom >> refpos;
+                                fichierRom >> basepos;
 
                                 std::cout << "lu\n";
 
-                                nouv=ajouterFichier(larg,haut,x,y,id,color); // on cree un bloc
-/**                                nouv=ajouterFichier(larg,haut,id,color,refpos,basepos);  **/
+                                Bloc* nouv = new Bloc{larg,haut,id,color,refpos,basepos};
+
+                                ///Affichages test
+                                std::cout << nouv->m_largeur << std::endl;
+                                std::cout << nouv->m_hauteur << std::endl;
+                                std::cout << nouv->m_x1 << std::endl;
+                                std::cout << nouv->m_y1 << std::endl;
+                                std::cout << nouv->m_nom << std::endl;
+                                std::cout << nouv->m_couleur << std::endl;
 
                                 if(type==0)// Si ce n'est pas un enfant
                                 {
@@ -82,7 +71,7 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                                                 premier=0; ///Les prochaines operations n'impliquent pas directement la racine
                                         }
                                         ///On ajoute l'enfant
-                                        ListeBlocs[ListeBlocs.size()-1]->ajouterbloc(larg,haut,x,y,id,color);
+                                        ListeBlocs[ListeBlocs.size()-1]->ajouterbloc(larg,haut,id,color,refpos,basepos);
                                         ///On attribue l'adresse du parent a l'enfant
                                         ListeBlocs[ListeBlocs.size()-1]->m_bloc_enfant[ListeBlocs[ListeBlocs.size()-1]
                                                                                         ->m_bloc_enfant.size()-1]
@@ -118,7 +107,7 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
 
 Bloc* Bloc::store() ///Ne fonctionne pas correctement
 {
-    Bloc* copie = new Bloc{m_largeur,m_hauteur,m_x,m_y,m_nom,m_couleur};
+    Bloc* copie = new Bloc{m_largeur,m_hauteur,m_x1,m_y1,m_nom,m_couleur};
     Bloc* buffer, adresse;
 
     for(size_t i=0;i<m_bloc_enfant.size();++i)

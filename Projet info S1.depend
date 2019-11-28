@@ -1,7 +1,7 @@
 # depslib dependency file v1.0
 1574425320 
 
-1574880894 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
+1574954699 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.cpp
 	"svgfile.h"
 	<iostream>
 	<sstream>
@@ -22,28 +22,28 @@
 
 1574422429 D
 
-1574880894 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
+1574954699 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\svgfile.h
 	<string>
 	<fstream>
 	<set>
 
 1574422429 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
 
-1574899891 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+1574957086 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
 	<iostream>
 	"bloc.h"
 	"coord.h"
 	"header.h"
 	"svgfile.h"
 
-1574886254 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
+1574958307 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
 	"header.h"
 
 1574609004 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
 	<vector>
 	<string>
 
-1574880894 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
+1574954699 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
 	<iostream>
 	<vector>
 	<string>
@@ -55,16 +55,17 @@
 1574625265 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\scene.h
 	"header.h"
 
-1574952916 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
+1574958307 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
 	<iostream>
 	<vector>
 	<string>
 	<fstream>
 	<sstream>
 	"svgfile.h"
+	<map>
 
-1574952976 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
+1574958305 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
 	"bloc.h"
 
-1574880941 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\coord.h
+1574954704 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\coord.h
 

@@ -11,8 +11,6 @@ void menu()
     std::string menu="debut";
     std::string nom_fichier="debut";
     bool ids=0;
-        racine->calcul_xy_de_1_a_4(); // Initialise les point d'attache
-        racine->afficher(svgout,1);
 
     std::cout<<"        MENU"<<std::endl
     <<"saisir :"<<std::endl
@@ -27,7 +25,6 @@ void menu()
 
     do
     {
-        bool premier=1;
         std::cout<<std::endl<<"Votre choix : ";
         getline(std::cin,menu);
 
@@ -89,18 +86,20 @@ void menu()
         else if(menu=="rulers")
         {
             std::cout<<"affichage/masquage des axes"<<std::endl;
-            racine->GetBlocsEnf()[0]->m_x+=100;
         }
+        else
+            std::cout << "Saisie invalide\n";
 
         ///Fonction permettant de reactualiser la sortie chaque seconde
         if(nom_fichier!="debut")
         {
             Svgfile::s_verbose = false;
             Svgfile svgout;
+            racine->calcul_xy_de_1_a_4(); // Initialise les point d'attache
             if(ids==1)
-                racine->afficherIds(svgout,premier);
+                racine->afficherIds(svgout,1);
             else if(ids==0)
-                racine->afficher(svgout,premier);
+                racine->afficher(svgout,1);
         }
 
     }while(menu!="exit");
