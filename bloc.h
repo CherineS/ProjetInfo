@@ -69,6 +69,7 @@ class Bloc
         friend void lireFichier(Bloc*& racine, std::string& nom_fichier);
         ///friend Bloc* ajouterFichier(double& larg, double& haut, std::string& id, std::string& color, std::string& refp, std::string& basep);
 
+        void commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots);
         ///void collisions();
 };
 

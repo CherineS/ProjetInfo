@@ -148,6 +148,128 @@ void Bloc::afficherIds(Svgfile& output, bool racine)
         }
 }
 
+void Bloc::commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots)
+{
+    afficher(output,racine);
+    racine=0;
+    int a=-1;
+    int b=-1;
+    int d=-1;
+    int i=0;
+    int somme=0;
+    int c1=0,c2=0,c3=0;
+
+    int taille=mots.size();
+
+    std::vector<Bloc*>::iterator it_bloc;
+
+        for(it_bloc = m_bloc_enfant.begin(); it_bloc!=m_bloc_enfant.end(); ++it_bloc)
+        {
+            a=mots[0].find((*it_bloc)->m_nom);
+            if(a!=-1)
+            {
+                for (i=0;i<taille;++i)
+                {
+                b=mots[i].find("move");
+                d=mots[i].find("rotate");
+                if (b!=-1||d!=-1) break;
+                }
+                if(b!=-1||d!=-1)
+                {
+
+                if(taille>i+1)
+                    {
+                    mots[i+1][0];
+
+                    if((mots[i+1][0]=='+')||(mots[i+1][0]=='-'))
+                    {
+
+                        if((mots[i+1].size()<5)||(mots[i+1][3]==' '))
+                           {
+                               c1=mots[i+1][1]-48;
+                               c2=mots[i+1][2]-48;
+                               c3=mots[i+1][3]-48;
+
+                        if(mots[i+1].size()==2)
+                        {
+                            somme=c1;
+
+                        }
+                        else if(mots[i+1].size()==3)
+                        {
+                            somme=10*c1+c2;
+
+                        }
+                        else if(mots[i+1].size()==4)
+                        {
+                            somme=100*c1+10*c2+c3;
+                        }
+                        if(somme>=-100&&somme<=100)
+                        {
+                            if(b!=-1)
+                            {
+                                ///programme deplacement selon la position actuel avec 'somme' move
+                                std::cout<<mots[i+1][0]<<somme<<" move"<<std::endl;
+                            }
+                            if(d!=-1)
+                            {
+                                ///programme deplacement selon la position actuel avec 'somme' rotate
+                                std::cout<<mots[i+1][0]<<somme<<" rotate"<<std::endl;
+                            }
+                        }
+                           }
+                    }
+                    else if(mots[i+1][0]>0)
+                    {
+                        if((mots[i+1].size()<4)||(mots[i+1][3]==' '))
+                           {
+                               c1=mots[i+1][0]-48;
+                               c2=mots[i+1][1]-48;
+                               c3=mots[i+1][2]-48;
+
+                        if(mots[i+1].size()==1)
+                        {
+                            somme=c1;
+
+                        }
+                        else if(mots[i+1].size()==2)
+                        {
+                            somme=10*c1+c2;
+
+                        }
+                        else if(mots[i+1].size()==3)
+                        {
+                            somme=100*c1+10*c2+c3;
+
+                        }
+                    if(somme>=0&&somme<=100)
+                        {
+                            if(b!=-1)
+                            {
+                                ///programme deplacement selon la position actuel avec 'somme' move
+                                std::cout<<somme<<" move"<<std::endl;
+                            }
+                            if(d!=-1)
+                            {
+                                ///programme deplacement selon la position actuel avec 'somme' rotate
+                                std::cout<<somme<<" rotate"<<std::endl;
+                            }
+                        }
+                        }
+                    }
+                    else
+                        {
+                            std::cout<<"nombre non valide"<<std::endl;
+                        }
+                  }
+                }
+            }
+        }
+}
+
+
+
+
 /*
 void Bloc::collisions()
 {
