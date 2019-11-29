@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include <iterator>
+#include <algorithm>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -13,5 +15,6 @@
 class cmgl {};
 
 void lireFichier(Bloc*& racine);
+void menu();
 
 #endif // HEADER_H_INCLUDED
