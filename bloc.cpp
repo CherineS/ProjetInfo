@@ -168,6 +168,7 @@ void Bloc::commandedeplacement(Svgfile& output, bool racine,std::vector<std::str
         for(it_bloc = m_bloc_enfant.begin(); it_bloc!=m_bloc_enfant.end(); ++it_bloc)
         {
             a=mots[0].find((*it_bloc)->m_nom);
+            (*it_bloc)->commandedeplacement(output,racine,mots);
             if(a!=-1)
             {
                 for (i=0;i<taille;++i)
@@ -259,13 +260,11 @@ void Bloc::commandedeplacement(Svgfile& output, bool racine,std::vector<std::str
                         }
                         }
                     }
-                    else
-                        {
-                            std::cout<<"nombre non valide"<<std::endl;
-                        }
+
                   }
                 }
             }
+
         }
 }
 

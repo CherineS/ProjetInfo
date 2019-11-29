@@ -6,14 +6,14 @@
 	<iostream>
 	<sstream>
 
-1574956637 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
+1575056261 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\main.cpp
 	<iostream>
 	"bloc.h"
 	"coord.h"
 	"header.h"
 	"svgfile.h"
 
-1574880309 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
+1575055731 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.cpp
 	"svgfile.h"
 	<iostream>
 	<sstream>
@@ -33,7 +33,7 @@
 	<fstream>
 	<set>
 
-1574880309 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
+1575055731 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\svgfile.h
 	<string>
 	<fstream>
 	<set>
@@ -48,13 +48,14 @@
 1575054076 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
 	"header.h"
 
-1574965375 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
+1575056261 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
 	<iostream>
 	<vector>
 	<string>
 	<fstream>
 	<sstream>
 	"svgfile.h"
+	<map>
 
 1575053602 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
 	<iostream>
@@ -84,10 +85,10 @@
 
 1574963068 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\coord.h
 
-1574966617 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\fichiers.cpp
+1575056261 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\fichiers.cpp
 	"header.h"
 
-1574956249 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\header.h
+1575055731 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\header.h
 	<iostream>
 	<vector>
 	<iterator>
@@ -98,8 +99,8 @@
 	"bloc.h"
 	"svgfile.h"
 
-1574966773 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.cpp
+1575057046 source:c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.cpp
 	"bloc.h"
 
-1574423619 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\coord.h
+1575056261 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\coord.h
 
