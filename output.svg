@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1000" height="800">
 
-<polygon points=" 0,0 0,0 0,0 0,0" style="fill:lightblue;stroke:black;stroke-width:0.15" />
-<polygon points=" -330,-10 330,-10 330,0 -330,0" style="fill:darkgrey;stroke:black;stroke-width:0.1" />
-<polygon points=" -25,-25 25,-25 25,25 -25,25" style="fill:black;stroke:black;stroke-width:0.1" />
-<polygon points=" -50,0 0,0 0,20 -50,20" style="fill:brown;stroke:black;stroke-width:0.1" />
-<circle cx="0" cy="0" r="10" fill="none" stroke="yellow" stroke-width="2" />
-<polygon points=" 0,-25 40,-25 40,25 0,25" style="fill:blue;stroke:black;stroke-width:0.1" />
+<polygon points=" 0,0 800,0 800,400 0,400" style="fill:lightblue;stroke:black;stroke-width:0.15" />
+<polygon points=" -10,390 810,390 810,410 -10,410" style="fill:darkgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,290 450,290 450,390 350,390" style="fill:black;stroke:black;stroke-width:0.1" />
+<polygon points=" 600,190 800,190 800,210 600,210" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 790,180 810,180 810,190 790,190" style="fill:red;stroke:black;stroke-width:0.1" />
+<polygon points=" 580,140 620,140 620,190 580,190" style="fill:camel;stroke:black;stroke-width:0.1" />
 
 
 </svg>

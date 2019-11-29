@@ -91,23 +91,25 @@ void Bloc::afficher(Svgfile& output, bool racine)
         ///Afficher la racine
         if(racine==1)
         {
-                output.addRect(m_x1,m_y1,m_x2,m_y1,m_x1,m_y3,m_x2, m_y3, m_couleur,0.15,"black");
-                racine=0;
+            output.addRect(m_x1 /*x1*/, m_y1 /*y1*/, m_x1+m_largeur /*x2*/, m_y1 /*y2*/, m_x1 /*x3*/,m_y1+m_hauteur /*y3*/,
+                               m_x1+m_largeur /*x4*/, m_y1+m_hauteur /*y4*/, m_couleur,0.15,"black");
+            racine=0;
         }
 
 
         for(it_bloc = m_bloc_enfant.begin(); it_bloc!=m_bloc_enfant.end(); ++it_bloc)
         {
-            if((*it_bloc)->m_hauteur==0) ///Contour disque
-                output.addCircle((*it_bloc)->m_x1+(*it_bloc)->m_largeur/2 /*x*/, (*it_bloc)->m_y1+(*it_bloc)->m_hauteur/2 /*y*/, (*it_bloc)->m_largeur/2 /*rayon*/,2,"yellow");
-            else
+
                 output.addRect((*it_bloc)->m_x1 /*x1*/,(*it_bloc)->m_y1 /*y1*/,(*it_bloc)->m_x2 /*x2*/,(*it_bloc)->m_y1 /*y2*/,(*it_bloc)->m_x1 /*x3*/,(*it_bloc)->m_y3 /*y3*/,(*it_bloc)->m_x2 /*4*/,(*it_bloc)->m_y3 /*y4*/,(*it_bloc)->m_couleur,0.1,"black");
+
                 // On envoie les enfant de maniere recursive
                 if((*it_bloc)->m_bloc_enfant.size()!=0) // Si il possede des enfant
                 {
                         (*it_bloc)->afficher(output,0);
                 }
-    }
+
+
+        }
 }
 
 void Bloc::afficherIds(Svgfile& output, bool racine)
@@ -181,75 +183,77 @@ void Bloc::calcul_xy_de_1_a_4()
                 if((*it_bloc)->m_conteneur != nullptr) // Si il a un parent on regarde sa position d'encrage pour orienter le bloc ver la droite ou la gauche
                 {                                         // On base la position sur refpos du parent
 
+                    (*it_bloc)->calcule_xy_ref_base_pos();
+
                         //On orriente le rect ver gauche
                         if((*it_bloc)->basepos=="tl")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos;         /*x1*/
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos+(*it_bloc)->m_largeur;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos;         /*y1*/
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos+(*it_bloc)->m_hauteur;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos;         /*x1*/
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos+(*it_bloc)->m_largeur;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos;         /*y1*/
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos+(*it_bloc)->m_hauteur;
                         }
                         else if ((*it_bloc)->basepos=="ml")
                         {
 
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos /*x1*/;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur /*x2*/;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur/(double)2 /*y1*/;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos + (*it_bloc)->m_hauteur/(double)2 /*y3*/;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos /*x1*/;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos + (*it_bloc)->m_largeur /*x2*/;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur/(double)2 /*y1*/;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos + (*it_bloc)->m_hauteur/(double)2 /*y3*/;
                         }
                         else if ((*it_bloc)->basepos=="bl")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos + (*it_bloc)->m_largeur;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos;
                         }
 
 
                         else if((*it_bloc)->basepos=="tr")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur;         /*x1*/
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos;         /*x2*/           /*x4*/
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos;         /*y1*/
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos + (*it_bloc)->m_hauteur;         /*y3*/         /*y4*/
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur;         /*x1*/
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos;         /*x2*/           /*x4*/
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos;         /*y1*/
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos + (*it_bloc)->m_hauteur;         /*y3*/         /*y4*/
 
                         }
                         else if ((*it_bloc)->basepos=="mr")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur;         /*x1*/
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos;         /*x2*/
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur/(double)2;         /*y1*/
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos + (*it_bloc)->m_hauteur/(double)2;         /*y3*/
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur;         /*x1*/
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos;         /*x2*/
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur/(double)2;         /*y1*/
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos + (*it_bloc)->m_hauteur/(double)2;         /*y3*/
 
                         }
                         else if ((*it_bloc)->basepos=="br")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos;
                         }
                         else if ((*it_bloc)->basepos=="bc")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos + (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos;
                         }
 
                         else if((*it_bloc)->basepos=="mc")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos + (*it_bloc)->m_hauteur;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos + (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos + (*it_bloc)->m_hauteur;
                         }
                         else if((*it_bloc)->basepos=="tc")
                         {
-                                (*it_bloc)->m_x1=(*it_bloc)->m_conteneur->x_refpos - (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_x2=(*it_bloc)->m_conteneur->x_refpos + (*it_bloc)->m_largeur/(double)2;
-                                (*it_bloc)->m_y1=(*it_bloc)->m_conteneur->y_refpos - (*it_bloc)->m_hauteur/(double)2;
-                                (*it_bloc)->m_y3=(*it_bloc)->m_conteneur->y_refpos + (*it_bloc)->m_hauteur/(double)2;
+                                (*it_bloc)->m_x1=(*it_bloc)->x_refpos - (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_x2=(*it_bloc)->x_refpos + (*it_bloc)->m_largeur/(double)2;
+                                (*it_bloc)->m_y1=(*it_bloc)->y_refpos - (*it_bloc)->m_hauteur/(double)2;
+                                (*it_bloc)->m_y3=(*it_bloc)->y_refpos + (*it_bloc)->m_hauteur/(double)2;
 
                         }
                         else
@@ -273,6 +277,7 @@ void Bloc::calcul_xy_de_1_a_4()
                 }
         }
 }
+
 // Calcule les coord de ref et base pose
 void Bloc::calcule_xy_ref_base_pos()
 {
@@ -292,95 +297,70 @@ void Bloc::calcule_xy_ref_base_pos()
         switch(pair_pos_int[refpos])
         {
         case 1:
-                x_refpos = m_x1;
-                y_refpos = m_y1;
+                x_refpos = m_conteneur->m_x1;
+                y_refpos = m_conteneur->m_y1;
                 break;
         case 2:
-                x_refpos = m_x1+ (m_largeur/(double)2);
-                y_refpos = m_y1;
+                x_refpos = m_conteneur->m_x1+ (m_conteneur->m_largeur/(double)2);
+                y_refpos = m_conteneur->m_y1;
                 break;
         case 3:
-                x_refpos = m_x1+m_largeur;
-                y_refpos = m_y1;
+                x_refpos = m_conteneur->m_x1+m_conteneur->m_largeur;
+                y_refpos = m_conteneur->m_y1;
                 break;
         case 4:
-                x_refpos = m_x1;
-                y_refpos = m_y1+(m_hauteur/(double)2);
+                x_refpos = m_conteneur->m_x1;
+                y_refpos = m_conteneur->m_y1+(m_conteneur->m_hauteur/(double)2);
                 break;
         case 5:
-                x_refpos = m_x1+ (m_largeur/(double)2);
-                y_refpos = m_y1+(m_hauteur/(double)2);
+                x_refpos = m_conteneur->m_x1+ (m_conteneur->m_largeur/(double)2);
+                y_refpos = m_conteneur->m_y1+(m_conteneur->m_hauteur/(double)2);
                 break;
         case 6:
-                x_refpos = m_x1+ m_largeur;
-                y_refpos = m_y1+(m_hauteur/(double)2);
+                x_refpos = m_conteneur->m_x1+ m_conteneur->m_largeur;
+                y_refpos = m_conteneur->m_y1+(m_conteneur->m_hauteur/(double)2);
                 break;
         case 7:
-                x_refpos = m_x1;
-                y_refpos = m_y1+m_hauteur;
+                x_refpos = m_conteneur->m_x1;
+                y_refpos = m_conteneur->m_y1+m_conteneur->m_hauteur;
                 break;
         case 8:
-                x_refpos = m_x1+ (m_largeur/(double)2);
-                y_refpos = m_y1+m_hauteur;
+                x_refpos = m_conteneur->m_x1+ (m_conteneur->m_largeur/(double)2);
+                y_refpos = m_conteneur->m_y1+m_conteneur->m_hauteur;
                 break;
         case 9:
-                x_refpos = m_x1+m_largeur;
-                y_refpos = m_y1+m_hauteur;
+                x_refpos = m_conteneur->m_x1+m_conteneur->m_largeur;
+                y_refpos = m_conteneur->m_y1+m_conteneur->m_hauteur;
                 break;
 
         default:
-                x_refpos = m_x1;
-                y_refpos = m_y1;
+                x_refpos = m_conteneur->m_x1;
+                y_refpos = m_conteneur->m_y1;
                 break;
 
 
         }
-// Basepose(x,y) = m_x;m_y
-
-// de meme pour la position d'attache en tant que fils
-/*        switch(pair_pos_int[basepos])
-        {
-        case 1:
-                x_basepos = m_x;
-                y_basepos = m_y;
-                break;
-        case 2:
-                x_basepos = m_x+ (m_largeur/(double)2);
-                y_basepos = m_y;
-                break;
-        case 3:
-                x_basepos = m_x+m_largeur;
-                y_basepos = m_y;
-                break;
-        case 4:
-                x_basepos = m_x;
-                y_basepos = m_y+(m_hauteur/(double)2);
-                break;
-        case 5:
-                x_basepos = m_x+ (m_largeur/(double)2);
-                y_basepos = m_y+(m_hauteur/(double)2);
-                break;
-        case 6:
-                x_basepos = m_x+ m_largeur;
-                y_basepos = y_refpos = m_y+(m_hauteur/(double)2);
-                break;
-        case 7:
-                x_basepos = m_x;
-                y_basepos = m_y+m_hauteur;
-                break;
-        case 8:
-                x_basepos = m_x+ (m_largeur/(double)2);
-                y_basepos = m_y+m_hauteur;
-                break;
-        case 9:
-                x_basepos = m_x+m_largeur;
-                y_basepos = m_y+m_hauteur;
-                break;
-        default:
-                x_basepos = m_x;
-                y_basepos = m_y;
-                break;
-
-
-        } */
 }
+
+
+
+///Avoir une fonction avancer fonctionnelle
+
+/////Bloc mobile
+//BlocMobile::BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
+//                   std::string direction, double vitesse)
+//    : Bloc(largeur,hauteur,nom,couleur,rp,bp), m_direction{direction}, m_vitesse{vitesse}
+//{ }
+//
+//BlocMobile::BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse)
+//    : Bloc(largeur,hauteur,nom,couleur), m_direction{direction}, m_vitesse{vitesse}
+//{ }
+//
+/////Bloc immobile
+//BlocImmobile::BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp)
+//    : Bloc(largeur,hauteur,nom,couleur,rp,bp)
+//{ }
+//
+//BlocImmobile::BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur)
+//    : Bloc(largeur,hauteur,nom,couleur)
+//{ }

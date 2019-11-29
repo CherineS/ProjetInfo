@@ -17,33 +17,33 @@ class Bloc
         Bloc(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
         Bloc(double largeur,double hauteur,std::string nom,std::string couleur);
         Bloc();
-        ~Bloc();
+        virtual ~Bloc();
 
-        void ajouterbloc();
-        void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);;
+//        virtual void ajouterbloc();
+        virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
 
 
         ///getters
-        Bloc* GetConteneur() const;
-        double GetX1() const;
-        double GetY1() const;
-        std::string GetCouleur() const;
-        std::string GetNom() const;
-        double GetLargeur() const;
-        double GetHauteur() const;
-        std::vector<Bloc*> GetBlocsEnf() const;
+        virtual Bloc* GetConteneur() const;
+        virtual double GetX1() const;
+        virtual double GetY1() const;
+        virtual std::string GetCouleur() const;
+        virtual std::string GetNom() const;
+        virtual double GetLargeur() const;
+        virtual double GetHauteur() const;
+        virtual std::vector<Bloc*> GetBlocsEnf() const;
 
         ///setters
-        void SetConteneur(Bloc* conteneur);
-        void SetBlocsEnf(Bloc* &aCopier);
+        virtual void SetConteneur(Bloc* conteneur);
+        virtual void SetBlocsEnf(Bloc* &aCopier);
 
-        void afficherIds(Svgfile& output, bool racine);
-        void afficher(Svgfile& output, bool racine);
-        void calcule_xy_ref_base_pos();
-        void calcul_xy_de_1_a_4();
-        Bloc* store();
+        virtual void afficherIds(Svgfile& output, bool racine);
+        virtual void afficher(Svgfile& output, bool racine);
+        virtual void calcule_xy_ref_base_pos();
+        virtual void calcul_xy_de_1_a_4();
+        virtual Bloc* store();
 
-    private:
+    protected:
         double m_largeur;
         double m_hauteur;
         double m_x1; // x1 = x3
@@ -71,6 +71,25 @@ class Bloc
 
         ///void collisions();
 };
+
+//class BlocMobile : public Bloc
+//{
+//    private :
+//        std::string m_direction;
+//        double m_vitesse;
+//
+//    public :
+//        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
+//                   std::string direction, double vitesse);
+//        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse);
+//};
+//
+//class BlocImmobile : public Bloc
+//{
+//    public :
+//        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
+//        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur);
+//};
 
 
 #endif // BLOC_H_INCLUDED
