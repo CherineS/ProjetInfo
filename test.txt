@@ -3,6 +3,6 @@ room 800 400 lightblue tl tl
 [ robot 100 100 black tc bc
 ]
 etagere 200 20 brown mr mr
-[ flower 20 10 red tr bc
+[ flower 20 0 red tr bc
 ]
 [ box 40 50 camel tl bc

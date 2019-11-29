@@ -19,9 +19,9 @@ class Bloc
         Bloc();
         virtual ~Bloc();
 
-//        virtual void ajouterbloc();
         virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
-
+        virtual void commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots);
+        ///void collisions();
 
         ///getters
         virtual Bloc* GetConteneur() const;
@@ -68,9 +68,6 @@ class Bloc
         friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
         friend void lireFichier(Bloc*& racine, std::string& nom_fichier);
         ///friend Bloc* ajouterFichier(double& larg, double& haut, std::string& id, std::string& color, std::string& refp, std::string& basep);
-
-        void commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots);
-        ///void collisions();
 };
 
 //class BlocMobile : public Bloc

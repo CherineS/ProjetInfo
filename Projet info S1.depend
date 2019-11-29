@@ -38,14 +38,14 @@
 	<fstream>
 	<set>
 
-1575027707 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
+1575054751 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\main.cpp
 	<iostream>
 	"bloc.h"
 	"coord.h"
 	"header.h"
 	"svgfile.h"
 
-1575052017 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
+1575054076 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\fichiers.cpp
 	"header.h"
 
 1574965375 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\bloc.h
@@ -56,9 +56,11 @@
 	<sstream>
 	"svgfile.h"
 
-1574965195 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
+1575053602 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\header.h
 	<iostream>
 	<vector>
+	<iterator>
+	<algorithm>
 	<string>
 	<fstream>
 	<sstream>
@@ -68,7 +70,7 @@
 1574625265 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\scene.h
 	"header.h"
 
-1575046427 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
+1575054655 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.h
 	<iostream>
 	<vector>
 	<string>
@@ -77,7 +79,7 @@
 	"svgfile.h"
 	<map>
 
-1575052406 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
+1575055062 source:c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\bloc.cpp
 	"bloc.h"
 
 1574963068 c:\users\principal\3d objects\documents\semestre 2 ece\informatique\projetinfo\coord.h

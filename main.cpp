@@ -25,7 +25,7 @@ void menu()
 
     do
     {
-        std::cout<<std::endl<<"Votre choix : ";
+        std::cout<<std::endl<<">";
         getline(std::cin,menu);
 
         if(menu=="load")
@@ -87,6 +87,17 @@ void menu()
         {
             std::cout<<"affichage/masquage des axes"<<std::endl;
         }
+        else if(menu[0]=='@')
+        {
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+            std::istringstream ligne(menu);
+            std::vector<std::string> mots;
+            std::copy(std::istream_iterator<std::string>(ligne), std::istream_iterator<std::string>(), std::back_inserter(mots));   ///s�pare les mots dans un vector
+
+            racine->commandedeplacement(svgout,1,mots);
+
+        }
         else
             std::cout << "Saisie invalide\n";
 
@@ -107,7 +118,6 @@ void menu()
 
 int main()
 {
-
 
    menu();
 

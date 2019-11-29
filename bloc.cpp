@@ -99,7 +99,9 @@ void Bloc::afficher(Svgfile& output, bool racine)
 
         for(it_bloc = m_bloc_enfant.begin(); it_bloc!=m_bloc_enfant.end(); ++it_bloc)
         {
-
+            if(m_hauteur==0) ///On trace un cercle
+                output.addDisk(((*it_bloc)->m_x1+(*it_bloc)->m_largeur)/2 /*x*/, ((*it_bloc)->m_y1+(*it_bloc)->m_largeur)/2 /*y*/, (*it_bloc)->m_largeur/2 /*rayon*/,m_couleur);
+            else ///On trace un rectangle
                 output.addRect((*it_bloc)->m_x1 /*x1*/,(*it_bloc)->m_y1 /*y1*/,(*it_bloc)->m_x2 /*x2*/,(*it_bloc)->m_y1 /*y2*/,(*it_bloc)->m_x1 /*x3*/,(*it_bloc)->m_y3 /*y3*/,(*it_bloc)->m_x2 /*4*/,(*it_bloc)->m_y3 /*y4*/,(*it_bloc)->m_couleur,0.1,"black");
 
                 // On envoie les enfant de maniere recursive
