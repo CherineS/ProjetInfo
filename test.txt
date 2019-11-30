@@ -1,8 +1,9 @@
-room 800 400 lightblue tl tl
-[ ground 820 20 darkgrey bc tc
-[ robot 100 100 black tc bc
+
+room 800 400 lightblue tl tl /
+[ ground 820 20 darkgrey bc tc /
+[ robot 100 100 white tc bc h 10
 ]
-etagere 200 20 brown mr mr
-[ flower 20 0 red tr bc
+etagere 200 20 brown mr mr /
+[ ball 40 0 red tr bc /
 ]
-[ box 40 50 camel tl bc
+[ box 40 50 blue tl bc /

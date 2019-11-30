@@ -20,7 +20,7 @@ class Bloc
         virtual ~Bloc();
 
         virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
-        virtual void commandedeplacement(Svgfile& output, bool racine,std::vector<std::string>& mots);
+        virtual void commandedeplacement(bool racine,std::vector<std::string>& mots);
         ///void collisions();
 
         ///getters
@@ -32,6 +32,8 @@ class Bloc
         virtual double GetLargeur() const;
         virtual double GetHauteur() const;
         virtual std::vector<Bloc*> GetBlocsEnf() const;
+        virtual double GetXRef() const;
+        virtual double GetYRef() const;
 
         ///setters
         virtual void SetConteneur(Bloc* conteneur);
@@ -40,8 +42,9 @@ class Bloc
         virtual void afficherIds(Svgfile& output, bool racine);
         virtual void afficher(Svgfile& output, bool racine);
         virtual void calcule_xy_ref_base_pos();
-        virtual void calcul_xy_de_1_a_4();
+        virtual void calcul_xy_de_1_a_4(bool reload);
         virtual Bloc* store();
+        virtual void avancer(double valeur);
 
     protected:
         double m_largeur;
@@ -65,29 +68,30 @@ class Bloc
         double y_refpos;
 
 
-        friend Bloc* ajouterFichier(double& larg, double& haut, double& x, double& y, std::string& id, std::string& color);
         friend void lireFichier(Bloc*& racine, std::string& nom_fichier);
-        ///friend Bloc* ajouterFichier(double& larg, double& haut, std::string& id, std::string& color, std::string& refp, std::string& basep);
 };
 
-//class BlocMobile : public Bloc
-//{
-//    private :
-//        std::string m_direction;
-//        double m_vitesse;
-//
-//    public :
-//        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
-//                   std::string direction, double vitesse);
-//        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse);
-//};
-//
-//class BlocImmobile : public Bloc
-//{
-//    public :
-//        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
-//        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur);
-//};
+class BlocMobile : public Bloc
+{
+    private :
+        std::string m_direction;
+        double m_vitesse;
+
+    public :
+        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
+                   std::string direction, double vitesse);
+        BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse);
+        void avancer(double valeur);
+        void rulers();
+};
+
+class BlocImmobile : public Bloc
+{
+    public :
+        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
+        BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur);
+        void avancer(double valeur);
+};
 
 
 #endif // BLOC_H_INCLUDED
