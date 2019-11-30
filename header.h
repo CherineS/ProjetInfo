@@ -11,6 +11,13 @@
 #include <sstream>
 #include "bloc.h"
 #include "svgfile.h"
+#include <windows.h>
+
+  inline void delay( unsigned long ms )
+    {
+    Sleep( ms );
+    }
+
 
 class cmgl {};
 

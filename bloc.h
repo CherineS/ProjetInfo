@@ -20,7 +20,7 @@ class Bloc
         virtual ~Bloc();
 
         virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
-        virtual void commandedeplacement(bool racine,std::vector<std::string>& mots);
+        virtual void commandedeplacement(std::vector<std::string>& mots);
         ///void collisions();
 
         ///getters
@@ -44,7 +44,8 @@ class Bloc
         virtual void calcule_xy_ref_base_pos();
         virtual void calcul_xy_de_1_a_4(bool reload);
         virtual Bloc* store();
-        virtual void avancer(double valeur);
+        virtual void avancer(double valeur,bool premier);
+        virtual void rulers(Svgfile& svgout) const;
 
     protected:
         double m_largeur;
@@ -81,8 +82,8 @@ class BlocMobile : public Bloc
         BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
                    std::string direction, double vitesse);
         BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse);
-        void avancer(double valeur);
-        void rulers();
+        void avancer(double valeur,bool premier);
+        void rulers(Svgfile& svgout) const;
 };
 
 class BlocImmobile : public Bloc
@@ -90,7 +91,7 @@ class BlocImmobile : public Bloc
     public :
         BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
         BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur);
-        void avancer(double valeur);
+        void avancer(double valeur, bool premier);
 };
 
 

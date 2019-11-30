@@ -3,7 +3,7 @@ room 800 400 lightblue tl tl /
 [ ground 820 20 darkgrey bc tc /
 [ robot 100 100 white tc bc h 10
 ]
-etagere 200 20 brown mr mr /
+etagere 200 20 brown mr mr v 10
 [ ball 40 0 red tr bc /
 ]
 [ box 40 50 blue tl bc /

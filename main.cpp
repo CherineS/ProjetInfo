@@ -109,7 +109,7 @@ void menu()
             std::vector<std::string> mots;
             std::copy(std::istream_iterator<std::string>(ligne), std::istream_iterator<std::string>(), std::back_inserter(mots));   ///s�pare les mots dans un vector
 
-            racine->commandedeplacement(1,mots);
+            racine->commandedeplacement(mots);
         }
         else
             std::cout << "Saisie invalide\n";
@@ -124,8 +124,9 @@ void menu()
                 racine->afficherIds(svgout,1);
             else if(ids==0)
                 racine->afficher(svgout,1);
-//            else if(rulers==1)
-//                racine->rulers();
+
+            if(rulers==1)
+                racine->rulers(svgout);
         }
 
     }
