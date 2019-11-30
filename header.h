@@ -11,10 +11,18 @@
 #include <sstream>
 #include "bloc.h"
 #include "svgfile.h"
+#include <windows.h>
+
+  inline void delay( unsigned long ms )
+    {
+    Sleep( ms );
+    }
+
 
 class cmgl {};
 
 void lireFichier(Bloc*& racine);
-void menu();
+void Menu();
+Bloc* store(Bloc* racine);
 
 #endif // HEADER_H_INCLUDED
