@@ -120,6 +120,7 @@ void menu()
             Svgfile::s_verbose = false;
             Svgfile svgout;
             racine->calcul_xy_de_1_a_4(0); // Initialise les point d'attache
+            racine->collisions();
             if(ids==1)
                 racine->afficherIds(svgout,1);
             else if(ids==0)

@@ -38,14 +38,17 @@ class Bloc
         ///setters
         virtual void SetConteneur(Bloc* conteneur);
         virtual void SetBlocsEnf(Bloc* &aCopier);
+        virtual void SetXRefpos(double valeur);
+        virtual void SetYRefpos(double valeur);
 
         virtual void afficherIds(Svgfile& output, bool racine);
         virtual void afficher(Svgfile& output, bool racine);
         virtual void calcule_xy_ref_base_pos();
         virtual void calcul_xy_de_1_a_4(bool reload);
         virtual Bloc* store();
-        virtual void avancer(double valeur,bool premier);
+        virtual void avancer(double valeur);
         virtual void rulers(Svgfile& svgout) const;
+        virtual void collisions();
 
     protected:
         double m_largeur;
@@ -82,7 +85,7 @@ class BlocMobile : public Bloc
         BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp,
                    std::string direction, double vitesse);
         BlocMobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string direction, double vitesse);
-        void avancer(double valeur,bool premier);
+        void avancer(double valeur);
         void rulers(Svgfile& svgout) const;
 };
 
@@ -91,7 +94,7 @@ class BlocImmobile : public Bloc
     public :
         BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
         BlocImmobile(double largeur,double hauteur,std::string nom,std::string couleur);
-        void avancer(double valeur, bool premier);
+        void avancer(double valeur);
 };
 
 

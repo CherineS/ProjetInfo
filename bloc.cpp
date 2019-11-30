@@ -93,6 +93,20 @@ void Bloc::SetConteneur(Bloc* conteneur)
     m_conteneur=conteneur;
 }
 
+void Bloc::SetXRefpos(double valeur)
+{
+    x_refpos+=valeur;
+    for(size_t i=0;i<m_bloc_enfant.size();++i)
+        m_bloc_enfant[i]->SetXRefpos(valeur);
+}
+
+void Bloc::SetYRefpos(double valeur)
+{
+    y_refpos+=valeur;
+    for(size_t i=0;i<m_bloc_enfant.size();++i)
+        m_bloc_enfant[i]->SetYRefpos(valeur);
+}
+
 void Bloc::ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep)
 {
     Bloc *bloc = new Bloc(largeur,hauteur,nom,couleur,refp,basep);
@@ -167,13 +181,13 @@ void Bloc::afficherIds(Svgfile& output, bool racine)
 
 
 ///Deplacement
-void Bloc::avancer(double valeur,bool premier)
+void Bloc::avancer(double valeur)
 {
     x_refpos+=valeur;
     y_refpos+=valeur;
 
     for(size_t i=0;i<m_bloc_enfant.size();++i)
-        m_bloc_enfant[i]->avancer(valeur,1);
+        m_bloc_enfant[i]->avancer(valeur);
     std::cout<<valeur<<" move"<<std::endl;
 }
 
@@ -240,7 +254,7 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                                 if(b!=-1)
                                 {
                                     ///programme deplacement selon la position actuel avec 'somme' move
-                                    (*it_bloc)->avancer(somme,1);
+                                    (*it_bloc)->avancer(somme);
                                 }
                                 if(d!=-1)
                                 {
@@ -278,7 +292,7 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                                 if(b!=-1)
                                 {
                                     ///programme deplacement selon la position actuel avec 'somme' move
-                                    (*it_bloc)->avancer(somme,1);
+                                    (*it_bloc)->avancer(somme);
                                 }
                                 if(d!=-1)
                                 {
@@ -297,32 +311,46 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
 }
 
 
-
-
-/*
+///Collisions
 void Bloc::collisions()
 {
-    std::vector<Bloc*> Freres=m_conteneur()->GetBlocsEnf();
-    for(size_t i=0; i<Freres.size();++i)
+    for(size_t i=0; i<m_bloc_enfant.size();++i)
     {
-        ///On ne considere pas les collisions avec lui meme
-        if(Freres[i]->GetNom()!=m_nom)
+        for(size_t j=0; j<m_bloc_enfant.size();++j)
         {
-            ///Si le bloc se deplace en x
-            if(m_x<=Freres[i]->GetX())
-                ///appeler fonction avancer +10
-            else if(m_x+m_largeur>=Freres[i]->GetX+Freres[i]->GetLargeur)
-                ///appeler fonction avancer -10
+            ///On ne considere pas les collisions avec lui meme et ses enfants
+            if(i!=j)
+            {
+                ///Si le bloc se deplace en x
+                if(m_bloc_enfant[j]->GetX1()<m_bloc_enfant[i]->GetX1() && m_bloc_enfant[i]->GetX1()<m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur())
+                {
+                    ///Si son aire est plus importante, elle pousse, sinon elle ne bouge pas
+                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
+                        m_bloc_enfant[j]->SetXRefpos(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur()-m_bloc_enfant[i]->GetX1());
+                }
+                else if(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur() > m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur() && m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur() > m_bloc_enfant[i]->GetX1())
+                {
+                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
+                        m_bloc_enfant[j]->SetXRefpos(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur()-m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur());
+                }
 
-            ///Si le bloc se deplace en y
-            if(m_y<=Freres[i]->GetY())
-                ///appeler fonction avancer -10
-            else if(m_y+m_hauteur>=Freres[i]->GetHauteur()+Freres[i]->GetHauteur())
-                ///appeler fonction avancer +10
+                ///Si le bloc se deplace en y
+                if(m_bloc_enfant[j]->GetY1() < m_bloc_enfant[i]->GetY1() && m_bloc_enfant[i]->GetY1() < m_bloc_enfant[j]->GetY1()+m_bloc_enfant[j]->GetHauteur())
+                {
+                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
+                        m_bloc_enfant[j]->SetYRefpos(m_bloc_enfant[i]->GetY1()-m_bloc_enfant[j]->GetY1()+m_bloc_enfant[j]->GetHauteur());
+                }
+                else if(m_bloc_enfant[j]->GetY1()+m_bloc_enfant[j]->GetHauteur() > m_bloc_enfant[j]->GetY1()+m_bloc_enfant[i]->GetHauteur() && m_bloc_enfant[i]->GetY1()+m_bloc_enfant[i]->GetHauteur() > m_bloc_enfant[j]->GetY1())
+                {
+                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
+                        m_bloc_enfant[j]->SetYRefpos(m_bloc_enfant[j]->GetY1()+m_bloc_enfant[j]->GetHauteur()-m_bloc_enfant[j]->GetY1()+m_bloc_enfant[i]->GetHauteur());
+                }
+            }
+
         }
     }
 }
-*/
+
 
 void Bloc::calcul_xy_de_1_a_4(bool reload)
 {
@@ -507,30 +535,26 @@ BlocMobile::BlocMobile(double largeur,double hauteur,std::string nom,std::string
     : Bloc(largeur,hauteur,nom,couleur), m_direction{direction}, m_vitesse{vitesse}
 { }
 
-void BlocMobile::avancer(double valeur, bool premier)
+void BlocMobile::avancer(double valeur)
 {
     double j=0;
 
-    if(valeur>0)
+    if(valeur>0) ///Si avance
     {
-        while(j<valeur) ///Si avance
+        while(j<valeur)
         {
-            if(premier==1)
+            if(m_direction=="h")
             {
-                if(m_direction=="h")
-                    x_refpos+=m_vitesse;
-                else if(m_direction=="v")
-                    y_refpos+=m_vitesse;
-
+                x_refpos+=m_vitesse;
                 for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->avancer(m_vitesse,0);
+                    m_bloc_enfant[i]->SetXRefpos(m_vitesse);
+
             }
-            else
+            else if(m_direction=="v")
             {
-                ///Bouge comme un bloc immobile enfant
-
+                y_refpos+=m_vitesse;
                 for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->avancer(valeur,0);
+                    m_bloc_enfant[i]->SetYRefpos(m_vitesse);
             }
             j+=m_vitesse;
 
@@ -550,26 +574,20 @@ void BlocMobile::avancer(double valeur, bool premier)
     {
         while(j>valeur)
         {
-            if(premier==1)
+            if(m_direction=="h")
             {
-                if(m_direction=="h")
-                    x_refpos-=m_vitesse;
-                else if(m_direction=="v")
-                    y_refpos-=m_vitesse;
-
+                x_refpos-=m_vitesse;
                 for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->avancer(-1*m_vitesse,0);
+                    m_bloc_enfant[i]->SetXRefpos(-1*m_vitesse);
+
             }
-            else
+            else if(m_direction=="v")
             {
-                ///Bouge comme un bloc enfant immobile
-//                x_refpos+=valeur;
-//                ou
-//                y_refpos+=valeur;       /!\ +valeur car la valeur est deja negative !
-
+                y_refpos-=m_vitesse;
                 for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->avancer(valeur,0);
+                    m_bloc_enfant[i]->SetYRefpos(-1*m_vitesse);
             }
+
             j-=m_vitesse;
 
             Bloc* racine=m_conteneur;
@@ -626,25 +644,7 @@ BlocImmobile::BlocImmobile(double largeur,double hauteur,std::string nom,std::st
     : Bloc(largeur,hauteur,nom,couleur)
 { }
 
-void BlocImmobile::avancer(double valeur, bool premier)
+void BlocImmobile::avancer(double valeur)
 {
-    if(premier==1)
-        std::cout << "Un bloc immobile ne peut pas se deplacer !" << std::endl;
-    else
-    {
-        if(m_conteneur->GetX1()!=m_conteneur->GetXRef()) ///faux
-        {
-            x_refpos+=valeur;
-
-            for(size_t i=0;i<m_bloc_enfant.size();++i)
-                m_bloc_enfant[i]->avancer(valeur,0);
-        }
-        else if(m_conteneur->GetY1()!=m_conteneur->GetYRef())
-        {
-            y_refpos+=valeur;
-
-            for(size_t i=0;i<m_bloc_enfant.size();++i)
-                m_bloc_enfant[i]->avancer(valeur,0);
-        }
-    }
+    std::cout << "Un bloc immobile ne peut pas se deplacer !" << std::endl;
 }

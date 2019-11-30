@@ -1,9 +1,22 @@
 
 room 800 400 lightblue tl tl /
 [ ground 820 20 darkgrey bc tc /
-[ robot 100 100 white tc bc h 10
+[ robot 100 100 white tc bc h 20
+[ head 40 50 white tc bc /
 ]
-etagere 200 20 brown mr mr v 10
-[ ball 40 0 red tr bc /
+[ arm 60 20 white mc bl /
 ]
-[ box 40 50 blue tl bc /
+]
+etagere1 200 20 brown mr mr v 15
+[ ball1 40 0 red tr br /
+]
+[ box1 40 50 blue tl bc /
+]
+etagere2 200 20 brown ml ml v 15
+[ ball2 40 0 blue tr br /
+]
+[ box2 50 40 green tl bl /
+]
+[ candle 10 40 white tc bc /
+[ fire 10 0 red tc bc /
+[ . 5 0 yellow bc bc /
