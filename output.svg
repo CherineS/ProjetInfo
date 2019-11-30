@@ -1,113 +1,374 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1000" height="800">
 
-<polygon points=" 0,0 800,0 800,400 0,400" style="fill:lightblue;stroke:black;stroke-width:0.15" />
-<polygon points=" -10,390 810,390 810,410 -10,410" style="fill:darkgrey;stroke:black;stroke-width:0.1" />
-<polygon points=" 350,290 450,290 450,390 350,390" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 380,240 420,240 420,290 380,290" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 400,320 460,320 460,340 400,340" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 600,190 800,190 800,210 600,210" style="fill:brown;stroke:black;stroke-width:0.1" />
-<circle cx="780" cy="170" r="20" fill="red" />
-<polygon points=" 580,140 620,140 620,190 580,190" style="fill:blue;stroke:black;stroke-width:0.1" />
-<polygon points=" 0,190 200,190 200,210 0,210" style="fill:brown;stroke:black;stroke-width:0.1" />
-<circle cx="180" cy="170" r="20" fill="blue" />
-<polygon points=" 0,150 50,150 50,190 0,190" style="fill:green;stroke:black;stroke-width:0.1" />
-<polygon points=" 95,150 105,150 105,190 95,190" style="fill:white;stroke:black;stroke-width:0.1" />
-<circle cx="100" cy="145" r="5" fill="red" />
-<circle cx="100" cy="147.5" r="2.5" fill="yellow" />
-<polygon points=" -10,390 810,390 810,410 -10,410" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="378" y="402" fill="yellow" >ground</text>
-<text x="380" y="404" fill="yellow" >ground</text>
-<text x="378" y="404" fill="yellow" >ground</text>
-<text x="380" y="402" fill="yellow" >ground</text>
-<text x="379" y="403" fill="black" >ground</text>
-<polygon points=" 350,290 450,290 450,390 350,390" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 380,240 420,240 420,290 380,290" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 400,320 460,320 460,340 400,340" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 350,290 450,290 450,390 350,390" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="382" y="342" fill="yellow" >robot</text>
-<text x="384" y="344" fill="yellow" >robot</text>
-<text x="382" y="344" fill="yellow" >robot</text>
-<text x="384" y="342" fill="yellow" >robot</text>
-<text x="383" y="343" fill="black" >robot</text>
-<polygon points=" 380,240 420,240 420,290 380,290" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 400,320 460,320 460,340 400,340" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 380,240 420,240 420,290 380,290" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="385" y="267" fill="yellow" >head</text>
-<text x="387" y="269" fill="yellow" >head</text>
-<text x="385" y="269" fill="yellow" >head</text>
-<text x="387" y="267" fill="yellow" >head</text>
-<text x="386" y="268" fill="black" >head</text>
-<polygon points=" 400,320 460,320 460,340 400,340" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="419" y="332" fill="yellow" >arm</text>
-<text x="421" y="334" fill="yellow" >arm</text>
-<text x="419" y="334" fill="yellow" >arm</text>
-<text x="421" y="332" fill="yellow" >arm</text>
-<text x="420" y="333" fill="black" >arm</text>
-<polygon points=" 600,190 800,190 800,210 600,210" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="671" y="202" fill="yellow" >etagere1</text>
-<text x="673" y="204" fill="yellow" >etagere1</text>
-<text x="671" y="204" fill="yellow" >etagere1</text>
-<text x="673" y="202" fill="yellow" >etagere1</text>
-<text x="672" y="203" fill="black" >etagere1</text>
-<circle cx="780" cy="170" r="20" fill="red" />
-<polygon points=" 580,140 620,140 620,190 580,190" style="fill:blue;stroke:black;stroke-width:0.1" />
-<circle cx="780" cy="170" r="20" fill="none" stroke="yellow" stroke-width="2" />
-<text x="762" y="192" fill="yellow" >ball1</text>
-<text x="764" y="194" fill="yellow" >ball1</text>
-<text x="762" y="194" fill="yellow" >ball1</text>
-<text x="764" y="192" fill="yellow" >ball1</text>
-<text x="763" y="193" fill="black" >ball1</text>
-<polygon points=" 580,140 620,140 620,190 580,190" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="585" y="167" fill="yellow" >box1</text>
-<text x="587" y="169" fill="yellow" >box1</text>
-<text x="585" y="169" fill="yellow" >box1</text>
-<text x="587" y="167" fill="yellow" >box1</text>
-<text x="586" y="168" fill="black" >box1</text>
-<polygon points=" 0,190 200,190 200,210 0,210" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="71" y="202" fill="yellow" >etagere2</text>
-<text x="73" y="204" fill="yellow" >etagere2</text>
-<text x="71" y="204" fill="yellow" >etagere2</text>
-<text x="73" y="202" fill="yellow" >etagere2</text>
-<text x="72" y="203" fill="black" >etagere2</text>
-<circle cx="180" cy="170" r="20" fill="blue" />
-<polygon points=" 0,150 50,150 50,190 0,190" style="fill:green;stroke:black;stroke-width:0.1" />
-<polygon points=" 95,150 105,150 105,190 95,190" style="fill:white;stroke:black;stroke-width:0.1" />
-<circle cx="100" cy="145" r="5" fill="red" />
-<circle cx="100" cy="147.5" r="2.5" fill="yellow" />
-<circle cx="180" cy="170" r="20" fill="none" stroke="yellow" stroke-width="2" />
-<text x="162" y="192" fill="yellow" >ball2</text>
-<text x="164" y="194" fill="yellow" >ball2</text>
-<text x="162" y="194" fill="yellow" >ball2</text>
-<text x="164" y="192" fill="yellow" >ball2</text>
-<text x="163" y="193" fill="black" >ball2</text>
-<polygon points=" 0,150 50,150 50,190 0,190" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="10" y="172" fill="yellow" >box2</text>
-<text x="12" y="174" fill="yellow" >box2</text>
-<text x="10" y="174" fill="yellow" >box2</text>
-<text x="12" y="172" fill="yellow" >box2</text>
-<text x="11" y="173" fill="black" >box2</text>
-<polygon points=" 95,150 105,150 105,190 95,190" style="fill:none;stroke:yellow;stroke-width:2" />
-<text x="78" y="172" fill="yellow" >candle</text>
-<text x="80" y="174" fill="yellow" >candle</text>
-<text x="78" y="174" fill="yellow" >candle</text>
-<text x="80" y="172" fill="yellow" >candle</text>
-<text x="79" y="173" fill="black" >candle</text>
-<circle cx="100" cy="145" r="5" fill="red" />
-<circle cx="100" cy="147.5" r="2.5" fill="yellow" />
-<circle cx="100" cy="145" r="5" fill="none" stroke="yellow" stroke-width="2" />
-<text x="85" y="152" fill="yellow" >fire</text>
-<text x="87" y="154" fill="yellow" >fire</text>
-<text x="85" y="154" fill="yellow" >fire</text>
-<text x="87" y="152" fill="yellow" >fire</text>
-<text x="86" y="153" fill="black" >fire</text>
-<circle cx="100" cy="147.5" r="2.5" fill="yellow" />
-<circle cx="100" cy="147.5" r="2.5" fill="none" stroke="yellow" stroke-width="2" />
-<text x="96" y="152" fill="yellow" >.</text>
-<text x="98" y="154" fill="yellow" >.</text>
-<text x="96" y="154" fill="yellow" >.</text>
-<text x="98" y="152" fill="yellow" >.</text>
-<text x="97" y="153" fill="black" >.</text>
+<polygon points=" 0,0 900,0 900,500 0,500" style="fill:lightblue;stroke:black;stroke-width:0.15" />
+<polygon points=" -10,490 910,490 910,490 -10,490" style="fill:darkgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,340 470,340 470,415 350,415" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 360,290 455,290 455,335 360,335" style="fill:lightgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,340 0,340 0,0 350,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 440,295 0,295 0,0 440,0" style="fill:grey;stroke:black;stroke-width:0.1" />
+<polygon points=" 425,375 0,375 0,0 425,0" style="fill:orange;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,395 482,395 482,417.5 400,417.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,392.5 495,392.5 495,429.5 470,429.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,380.5 0,380.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,417.5 0,417.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 860,450 860,450 860,490 860,490" style="fill:red;stroke:black;stroke-width:0.1" />
+<polygon points=" 860,465 0,465 0,0 860,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 880,450 0,450 0,0 880,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 820,450 910,450 910,450 820,450" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 770,370 930,370 930,410 770,410" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 800,290 850,290 850,370 800,370" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<polygon points=" 745,450 775,450 775,490 745,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<circle cx="760" cy="400" r="10" fill="pink" />
+<circle cx="920" cy="400" r="10" fill="lightgreen" />
+<polygon points=" 0,240 132.5,240 132.5,240 0,240" style="fill:brown;stroke:black;stroke-width:0.1" />
+<circle cx="225" cy="215" r="25" fill="peru" />
+<polygon points=" 0,180 40,180 40,240 0,240" style="fill:darkred;stroke:black;stroke-width:0.1" />
+<polygon points=" 20,200 0,200 0,0 20,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 117.5,200 132.5,200 132.5,200 117.5,200" style="fill:white;stroke:black;stroke-width:0.1" />
+<circle cx="125" cy="192.5" r="7.5" fill="red" />
+<circle cx="125" cy="196" r="4" fill="yellow" />
+<polygon points=" 445,-30 500,-30 500,35 445,35" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,25 500,25 500,75 400,75" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,35 420,35 420,90 400,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,60 0,60 0,0 390,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 490,35 510,35 510,90 490,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,60 0,60 0,0 480,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" -10,490 910,490 910,510 -10,510" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="428" y="502" fill="yellow" >ground</text>
+<text x="430" y="504" fill="yellow" >ground</text>
+<text x="428" y="504" fill="yellow" >ground</text>
+<text x="430" y="502" fill="yellow" >ground</text>
+<text x="429" y="503" fill="black" >ground</text>
+<polygon points=" 350,340 470,340 470,415 350,415" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 360,290 455,290 455,335 360,335" style="fill:lightgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,340 0,340 0,0 350,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 440,295 0,295 0,0 440,0" style="fill:grey;stroke:black;stroke-width:0.1" />
+<polygon points=" 425,375 0,375 0,0 425,0" style="fill:orange;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,395 482,395 482,417.5 400,417.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,392.5 495,392.5 495,429.5 470,429.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,380.5 0,380.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,417.5 0,417.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 860,450 860,450 860,490 860,490" style="fill:red;stroke:black;stroke-width:0.1" />
+<polygon points=" 860,465 0,465 0,0 860,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 880,450 0,450 0,0 880,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 820,450 910,450 910,450 820,450" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 770,370 930,370 930,410 770,410" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 800,290 850,290 850,370 800,370" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<polygon points=" 745,450 775,450 775,490 745,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<circle cx="760" cy="400" r="10" fill="pink" />
+<circle cx="920" cy="400" r="10" fill="lightgreen" />
+<polygon points=" 350,340 450,340 450,490 350,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="382" y="417" fill="yellow" >robot</text>
+<text x="384" y="419" fill="yellow" >robot</text>
+<text x="382" y="419" fill="yellow" >robot</text>
+<text x="384" y="417" fill="yellow" >robot</text>
+<text x="383" y="418" fill="black" >robot</text>
+<polygon points=" 360,290 455,290 455,335 360,335" style="fill:lightgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,340 0,340 0,0 350,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 440,295 0,295 0,0 440,0" style="fill:grey;stroke:black;stroke-width:0.1" />
+<polygon points=" 425,375 0,375 0,0 425,0" style="fill:orange;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,395 482,395 482,417.5 400,417.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,392.5 495,392.5 495,429.5 470,429.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,380.5 0,380.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,417.5 0,417.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 360,290 440,290 440,340 360,340" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="385" y="317" fill="yellow" >head</text>
+<text x="387" y="319" fill="yellow" >head</text>
+<text x="385" y="319" fill="yellow" >head</text>
+<text x="387" y="317" fill="yellow" >head</text>
+<text x="386" y="318" fill="black" >head</text>
+<polygon points=" 350,340 0,340 0,0 350,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 440,295 0,295 0,0 440,0" style="fill:grey;stroke:black;stroke-width:0.1" />
+<polygon points=" 350,340 450,340 450,350 350,350" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="385" y="347" fill="yellow" >neck</text>
+<text x="387" y="349" fill="yellow" >neck</text>
+<text x="385" y="349" fill="yellow" >neck</text>
+<text x="387" y="347" fill="yellow" >neck</text>
+<text x="386" y="348" fill="black" >neck</text>
+<polygon points=" 440,295 455,295 455,335 440,335" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="422.5" y="317" fill="yellow" >googles</text>
+<text x="424.5" y="319" fill="yellow" >googles</text>
+<text x="422.5" y="319" fill="yellow" >googles</text>
+<text x="424.5" y="317" fill="yellow" >googles</text>
+<text x="423.5" y="318" fill="black" >googles</text>
+<polygon points=" 425,375 450,375 450,455 425,455" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="415.5" y="417" fill="yellow" >screen</text>
+<text x="417.5" y="419" fill="yellow" >screen</text>
+<text x="415.5" y="419" fill="yellow" >screen</text>
+<text x="417.5" y="417" fill="yellow" >screen</text>
+<text x="416.5" y="418" fill="black" >screen</text>
+<polygon points=" 400,395 470,395 470,415 400,415" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="424" y="407" fill="yellow" >arm</text>
+<text x="426" y="409" fill="yellow" >arm</text>
+<text x="424" y="409" fill="yellow" >arm</text>
+<text x="426" y="407" fill="yellow" >arm</text>
+<text x="425" y="408" fill="black" >arm</text>
+<polygon points=" 470,392.5 495,392.5 495,429.5 470,429.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,380.5 0,380.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,417.5 0,417.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,392.5 482,392.5 482,417.5 470,417.5" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="458" y="407" fill="yellow" >grip1</text>
+<text x="460" y="409" fill="yellow" >grip1</text>
+<text x="458" y="409" fill="yellow" >grip1</text>
+<text x="460" y="407" fill="yellow" >grip1</text>
+<text x="459" y="408" fill="black" >grip1</text>
+<polygon points=" 470,380.5 0,380.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,417.5 0,417.5 0,0 470,0" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 470,380.5 495,380.5 495,392.5 470,392.5" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="464.5" y="388.5" fill="yellow" >grip2</text>
+<text x="466.5" y="390.5" fill="yellow" >grip2</text>
+<text x="464.5" y="390.5" fill="yellow" >grip2</text>
+<text x="466.5" y="388.5" fill="yellow" >grip2</text>
+<text x="465.5" y="389.5" fill="black" >grip2</text>
+<polygon points=" 470,417.5 495,417.5 495,429.5 470,429.5" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="464.5" y="425.5" fill="yellow" >grip3</text>
+<text x="466.5" y="427.5" fill="yellow" >grip3</text>
+<text x="464.5" y="427.5" fill="yellow" >grip3</text>
+<text x="466.5" y="425.5" fill="yellow" >grip3</text>
+<text x="465.5" y="426.5" fill="black" >grip3</text>
+<polygon points=" 860,450 910,450 910,490 860,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="856" y="472" fill="yellow" >present1</text>
+<text x="858" y="474" fill="yellow" >present1</text>
+<text x="856" y="474" fill="yellow" >present1</text>
+<text x="858" y="472" fill="yellow" >present1</text>
+<text x="857" y="473" fill="black" >present1</text>
+<polygon points=" 860,465 0,465 0,0 860,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 880,450 0,450 0,0 880,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 820,450 910,450 910,450 820,450" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 770,370 930,370 930,410 770,410" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 800,290 850,290 850,370 800,370" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<polygon points=" 745,450 775,450 775,490 745,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<circle cx="760" cy="400" r="10" fill="pink" />
+<circle cx="920" cy="400" r="10" fill="lightgreen" />
+<polygon points=" 860,465 910,465 910,475 860,475" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="860" y="472" fill="yellow" >ribbon1</text>
+<text x="862" y="474" fill="yellow" >ribbon1</text>
+<text x="860" y="474" fill="yellow" >ribbon1</text>
+<text x="862" y="472" fill="yellow" >ribbon1</text>
+<text x="861" y="473" fill="black" >ribbon1</text>
+<polygon points=" 880,450 890,450 890,490 880,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="860" y="472" fill="yellow" >ribbon2</text>
+<text x="862" y="474" fill="yellow" >ribbon2</text>
+<text x="860" y="474" fill="yellow" >ribbon2</text>
+<text x="862" y="472" fill="yellow" >ribbon2</text>
+<text x="861" y="473" fill="black" >ribbon2</text>
+<polygon points=" 820,450 860,450 860,490 820,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="822" y="472" fill="yellow" >buche</text>
+<text x="824" y="474" fill="yellow" >buche</text>
+<text x="822" y="474" fill="yellow" >buche</text>
+<text x="824" y="472" fill="yellow" >buche</text>
+<text x="823" y="473" fill="black" >buche</text>
+<polygon points=" 770,370 930,370 930,410 770,410" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 800,290 850,290 850,370 800,370" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<polygon points=" 745,450 775,450 775,490 745,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<circle cx="760" cy="400" r="10" fill="pink" />
+<circle cx="920" cy="400" r="10" fill="lightgreen" />
+<polygon points=" 770,370 910,370 910,450 770,450" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="822" y="412" fill="yellow" >tree1</text>
+<text x="824" y="414" fill="yellow" >tree1</text>
+<text x="822" y="414" fill="yellow" >tree1</text>
+<text x="824" y="412" fill="yellow" >tree1</text>
+<text x="823" y="413" fill="black" >tree1</text>
+<polygon points=" 800,290 850,290 850,370 800,370" style="fill:darkgreen;stroke:black;stroke-width:0.1" />
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<polygon points=" 745,450 775,450 775,490 745,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<circle cx="760" cy="400" r="10" fill="pink" />
+<circle cx="920" cy="400" r="10" fill="lightgreen" />
+<polygon points=" 800,290 880,290 880,370 800,370" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="822" y="332" fill="yellow" >tree2</text>
+<text x="824" y="334" fill="yellow" >tree2</text>
+<text x="822" y="334" fill="yellow" >tree2</text>
+<text x="824" y="332" fill="yellow" >tree2</text>
+<text x="823" y="333" fill="black" >tree2</text>
+<circle cx="840" cy="280" r="10" fill="yellow" />
+<circle cx="800" cy="360" r="10" fill="orange" />
+<circle cx="880" cy="360" r="10" fill="turquoise" />
+<circle cx="840" cy="360" r="10" fill="red" />
+<circle cx="840" cy="280" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="825" y="292" fill="yellow" >star</text>
+<text x="827" y="294" fill="yellow" >star</text>
+<text x="825" y="294" fill="yellow" >star</text>
+<text x="827" y="292" fill="yellow" >star</text>
+<text x="826" y="293" fill="black" >star</text>
+<circle cx="800" cy="360" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="792" y="372" fill="yellow" >b1</text>
+<text x="794" y="374" fill="yellow" >b1</text>
+<text x="792" y="374" fill="yellow" >b1</text>
+<text x="794" y="372" fill="yellow" >b1</text>
+<text x="793" y="373" fill="black" >b1</text>
+<circle cx="880" cy="360" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="872" y="372" fill="yellow" >b2</text>
+<text x="874" y="374" fill="yellow" >b2</text>
+<text x="872" y="374" fill="yellow" >b2</text>
+<text x="874" y="372" fill="yellow" >b2</text>
+<text x="873" y="373" fill="black" >b2</text>
+<circle cx="840" cy="360" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="832" y="372" fill="yellow" >b3</text>
+<text x="834" y="374" fill="yellow" >b3</text>
+<text x="832" y="374" fill="yellow" >b3</text>
+<text x="834" y="372" fill="yellow" >b3</text>
+<text x="833" y="373" fill="black" >b3</text>
+<polygon points=" 745,450 795,450 795,490 745,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="741" y="472" fill="yellow" >present2</text>
+<text x="743" y="474" fill="yellow" >present2</text>
+<text x="741" y="474" fill="yellow" >present2</text>
+<text x="743" y="472" fill="yellow" >present2</text>
+<text x="742" y="473" fill="black" >present2</text>
+<polygon points=" 745,465 0,465 0,0 745,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 765,450 0,450 0,0 765,0" style="fill:darkseagreen;stroke:black;stroke-width:0.1" />
+<polygon points=" 745,465 795,465 795,475 745,475" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="745" y="472" fill="yellow" >ribbon3</text>
+<text x="747" y="474" fill="yellow" >ribbon3</text>
+<text x="745" y="474" fill="yellow" >ribbon3</text>
+<text x="747" y="472" fill="yellow" >ribbon3</text>
+<text x="746" y="473" fill="black" >ribbon3</text>
+<polygon points=" 765,450 775,450 775,490 765,490" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="745" y="472" fill="yellow" >ribbon4</text>
+<text x="747" y="474" fill="yellow" >ribbon4</text>
+<text x="745" y="474" fill="yellow" >ribbon4</text>
+<text x="747" y="472" fill="yellow" >ribbon4</text>
+<text x="746" y="473" fill="black" >ribbon4</text>
+<circle cx="760" cy="400" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="752" y="412" fill="yellow" >b4</text>
+<text x="754" y="414" fill="yellow" >b4</text>
+<text x="752" y="414" fill="yellow" >b4</text>
+<text x="754" y="412" fill="yellow" >b4</text>
+<text x="753" y="413" fill="black" >b4</text>
+<circle cx="920" cy="400" r="10" fill="none" stroke="yellow" stroke-width="2" />
+<text x="912" y="412" fill="yellow" >b5</text>
+<text x="914" y="414" fill="yellow" >b5</text>
+<text x="912" y="414" fill="yellow" >b5</text>
+<text x="914" y="412" fill="yellow" >b5</text>
+<text x="913" y="413" fill="black" >b5</text>
+<polygon points=" 0,240 250,240 250,260 0,260" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="107" y="252" fill="yellow" >shelf</text>
+<text x="109" y="254" fill="yellow" >shelf</text>
+<text x="107" y="254" fill="yellow" >shelf</text>
+<text x="109" y="252" fill="yellow" >shelf</text>
+<text x="108" y="253" fill="black" >shelf</text>
+<circle cx="225" cy="215" r="25" fill="peru" />
+<polygon points=" 0,180 40,180 40,240 0,240" style="fill:darkred;stroke:black;stroke-width:0.1" />
+<polygon points=" 20,200 0,200 0,0 20,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 117.5,200 132.5,200 132.5,200 117.5,200" style="fill:white;stroke:black;stroke-width:0.1" />
+<circle cx="125" cy="192.5" r="7.5" fill="red" />
+<circle cx="125" cy="196" r="4" fill="yellow" />
+<circle cx="225" cy="215" r="25" fill="none" stroke="yellow" stroke-width="2" />
+<text x="210" y="242" fill="yellow" >ball</text>
+<text x="212" y="244" fill="yellow" >ball</text>
+<text x="210" y="244" fill="yellow" >ball</text>
+<text x="212" y="242" fill="yellow" >ball</text>
+<text x="211" y="243" fill="black" >ball</text>
+<polygon points=" 0,180 20,180 20,240 0,240" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="-8" y="212" fill="yellow" >book1</text>
+<text x="-6" y="214" fill="yellow" >book1</text>
+<text x="-8" y="214" fill="yellow" >book1</text>
+<text x="-6" y="212" fill="yellow" >book1</text>
+<text x="-7" y="213" fill="black" >book1</text>
+<polygon points=" 20,200 0,200 0,0 20,0" style="fill:green;stroke:black;stroke-width:0.1" />
+<polygon points=" 20,200 40,200 40,240 20,240" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="12" y="222" fill="yellow" >book2</text>
+<text x="14" y="224" fill="yellow" >book2</text>
+<text x="12" y="224" fill="yellow" >book2</text>
+<text x="14" y="222" fill="yellow" >book2</text>
+<text x="13" y="223" fill="black" >book2</text>
+<polygon points=" 117.5,200 132.5,200 132.5,240 117.5,240" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="103" y="222" fill="yellow" >candle</text>
+<text x="105" y="224" fill="yellow" >candle</text>
+<text x="103" y="224" fill="yellow" >candle</text>
+<text x="105" y="222" fill="yellow" >candle</text>
+<text x="104" y="223" fill="black" >candle</text>
+<circle cx="125" cy="192.5" r="7.5" fill="red" />
+<circle cx="125" cy="196" r="4" fill="yellow" />
+<circle cx="125" cy="192.5" r="7.5" fill="none" stroke="yellow" stroke-width="2" />
+<text x="110" y="202" fill="yellow" >fire</text>
+<text x="112" y="204" fill="yellow" >fire</text>
+<text x="110" y="204" fill="yellow" >fire</text>
+<text x="112" y="202" fill="yellow" >fire</text>
+<text x="111" y="203" fill="black" >fire</text>
+<circle cx="125" cy="196" r="4" fill="yellow" />
+<circle cx="125" cy="196" r="4" fill="none" stroke="yellow" stroke-width="2" />
+<text x="121" y="202" fill="yellow" >.</text>
+<text x="123" y="204" fill="yellow" >.</text>
+<text x="121" y="204" fill="yellow" >.</text>
+<text x="123" y="202" fill="yellow" >.</text>
+<text x="122" y="203" fill="black" >.</text>
+<polygon points=" 445,-30 455,-30 455,30 445,30" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="432" y="2" fill="yellow" >light</text>
+<text x="434" y="4" fill="yellow" >light</text>
+<text x="432" y="4" fill="yellow" >light</text>
+<text x="434" y="2" fill="yellow" >light</text>
+<text x="433" y="3" fill="black" >light</text>
+<polygon points=" 400,25 500,25 500,75 400,75" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,35 420,35 420,90 400,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,60 0,60 0,0 390,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 490,35 510,35 510,90 490,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,60 0,60 0,0 480,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,25 500,25 500,35 400,35" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="428" y="32" fill="yellow" >lustre</text>
+<text x="430" y="34" fill="yellow" >lustre</text>
+<text x="428" y="34" fill="yellow" >lustre</text>
+<text x="430" y="32" fill="yellow" >lustre</text>
+<text x="429" y="33" fill="black" >lustre</text>
+<polygon points=" 400,35 420,35 420,90 400,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,60 0,60 0,0 390,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 490,35 510,35 510,90 490,90" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,60 0,60 0,0 480,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,35 410,35 410,75 400,75" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="397" y="57" fill="yellow" >l1</text>
+<text x="399" y="59" fill="yellow" >l1</text>
+<text x="397" y="59" fill="yellow" >l1</text>
+<text x="399" y="57" fill="yellow" >l1</text>
+<text x="398" y="58" fill="black" >l1</text>
+<polygon points=" 390,60 0,60 0,0 390,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,60 420,60 420,90 390,90" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="387" y="77" fill="yellow" >bulb1</text>
+<text x="389" y="79" fill="yellow" >bulb1</text>
+<text x="387" y="79" fill="yellow" >bulb1</text>
+<text x="389" y="77" fill="yellow" >bulb1</text>
+<text x="388" y="78" fill="black" >bulb1</text>
+<polygon points=" 490,35 500,35 500,75 490,75" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="487" y="57" fill="yellow" >l2</text>
+<text x="489" y="59" fill="yellow" >l2</text>
+<text x="487" y="59" fill="yellow" >l2</text>
+<text x="489" y="57" fill="yellow" >l2</text>
+<text x="488" y="58" fill="black" >l2</text>
+<polygon points=" 480,60 0,60 0,0 480,0" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,60 510,60 510,90 480,90" style="fill:none;stroke:yellow;stroke-width:2" />
+<text x="477" y="77" fill="yellow" >bulb2</text>
+<text x="479" y="79" fill="yellow" >bulb2</text>
+<text x="477" y="79" fill="yellow" >bulb2</text>
+<text x="479" y="77" fill="yellow" >bulb2</text>
+<text x="478" y="78" fill="black" >bulb2</text>
 
 
 </svg>

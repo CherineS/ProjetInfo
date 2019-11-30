@@ -13,13 +13,12 @@ class Bloc
 {
 
     public:
-        Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur);
+        Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur,std::string rp,std::string bp);
         Bloc(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp);
         Bloc(double largeur,double hauteur,std::string nom,std::string couleur);
         Bloc();
         virtual ~Bloc();
 
-        virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
         virtual void commandedeplacement(std::vector<std::string>& mots);
         ///void collisions();
 
@@ -32,6 +31,8 @@ class Bloc
         virtual double GetLargeur() const;
         virtual double GetHauteur() const;
         virtual std::vector<Bloc*> GetBlocsEnf() const;
+        virtual std::string GetRefpos() const;
+        virtual std::string GetBasepos() const;
         virtual double GetXRef() const;
         virtual double GetYRef() const;
 
@@ -45,10 +46,10 @@ class Bloc
         virtual void afficher(Svgfile& output, bool racine);
         virtual void calcule_xy_ref_base_pos();
         virtual void calcul_xy_de_1_a_4(bool reload);
-        virtual Bloc* store();
         virtual void avancer(double valeur);
         virtual void rulers(Svgfile& svgout) const;
         virtual void collisions();
+        void etirer(double valeur);
 
     protected:
         double m_largeur;

@@ -4,14 +4,8 @@
 #include "header.h"
 #include "svgfile.h"
 
-void menu()
+void Menu()
 {
-    Bloc*racine, *copie;
-
-    std::string menu="debut";
-    std::string nom_fichier="debut";
-    bool ids=0, rulers=0;
-
     std::cout<<"        MENU"<<std::endl
              <<"saisir :"<<std::endl
              <<"'exit'                        -pour quitter l'application"<<std::endl
@@ -21,7 +15,18 @@ void menu()
              <<"'restore'                     -pour retourner a la copie precedemment enregistre"<<std::endl
              <<"'ids'                         -afficher/cacher les ids"<<std::endl
              <<"'rulers'                      -afficher/cacher les axes"<<std::endl;
+}
 
+int main()
+{
+
+    Bloc*racine, *copie;
+
+    std::string menu="debut";
+    std::string nom_fichier="debut";
+    bool ids=0, rulers=0;
+
+    Menu();
 
     do
     {
@@ -53,7 +58,7 @@ void menu()
                 std::cout << "Pas de fichier" << std::endl;
             else
             {
-                copie=racine->store();
+                copie=store(racine);
                 std::cout<<"copie enregistre"<<std::endl;
             }
         }
@@ -64,6 +69,7 @@ void menu()
             else
             {
                 racine=copie;
+                racine->calcul_xy_de_1_a_4(1);
                 std::cout<<"restauration du fichier"<<std::endl;
             }
         }
@@ -111,6 +117,8 @@ void menu()
 
             racine->commandedeplacement(mots);
         }
+        else if(menu=="exit")
+            break;
         else
             std::cout << "Saisie invalide\n";
 
@@ -120,7 +128,7 @@ void menu()
             Svgfile::s_verbose = false;
             Svgfile svgout;
             racine->calcul_xy_de_1_a_4(0); // Initialise les point d'attache
-            racine->collisions();
+//            racine->collisions();
             if(ids==1)
                 racine->afficherIds(svgout,1);
             else if(ids==0)
@@ -129,15 +137,8 @@ void menu()
             if(rulers==1)
                 racine->rulers(svgout);
         }
-
     }
     while(menu!="exit");
-}
-
-int main()
-{
-
-    menu();
 
     return 0;
 }

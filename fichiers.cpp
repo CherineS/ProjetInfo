@@ -17,7 +17,6 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
         bool type,premier=1; // Type est un bool qui nous dit si nous avont a fair a un enfant, vrais pour type = 1
         std::string id, color, refpos, basepos, direction, ligne; // Parametre pour bloc + ligne a l'instant t
         std::istringstream iss{ligne};
-        Bloc* nouv = nullptr;
 
         while(getline(fichierRom,ligne))
         {
@@ -27,7 +26,6 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                 if(id=="[") // Si enfant
                 {
                     type=1;
-                    std::cout << "\nEnfant\n";
 
                     fichierRom >> id;
                 }
@@ -47,15 +45,13 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                 else
                     nouv = new BlocImmobile{larg,haut,id,color,refpos,basepos};
 
-                std::cout << "lu\n";
-
                 ///Affichages test
-                std::cout << nouv->m_largeur << std::endl;
-                std::cout << nouv->m_hauteur << std::endl;
-                std::cout << nouv->m_x1 << std::endl;
-                std::cout << nouv->m_y1 << std::endl;
-                std::cout << nouv->m_nom << std::endl;
-                std::cout << nouv->m_couleur << std::endl;
+//                std::cout << nouv->m_largeur << std::endl;
+//                std::cout << nouv->m_hauteur << std::endl;
+//                std::cout << nouv->m_x1 << std::endl;
+//                std::cout << nouv->m_y1 << std::endl;
+//                std::cout << nouv->m_nom << std::endl;
+//                std::cout << nouv->m_couleur << std::endl;
 
                 if(type==0)// Si ce n'est pas un enfant
                 {
@@ -85,8 +81,10 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
                     ->m_conteneur=ListeBlocs[ListeBlocs.size()-1];
                     ///On copie l'enfant au vecteur temporaire
                     ListeBlocs=ListeBlocs[ListeBlocs.size()-1]->m_bloc_enfant;
-                    std::cout << "Changement liste vers enfant : "
-                              << std::endl << ListeBlocs[0]->m_nom << std::endl;
+
+                    ///Affichage test
+//                    std::cout << "Changement liste vers enfant : "
+//                              << std::endl << ListeBlocs[0]->m_nom << std::endl;
                     type=0;
                 }
             }
@@ -100,28 +98,27 @@ void lireFichier(Bloc*& racine, std::string& nom_fichier)
             }
         }
         ///Verification
-        std::cout << std::endl << ListeBlocs[0]->m_nom << std::endl;
-        std::cout << ListeBlocs[0]->m_x1 << std::endl;
-        std::cout << ListeBlocs[0]->m_y1 << std::endl;
-        std::cout << ListeBlocs[0]->m_couleur << std::endl;
-        std::cout << "racine : " << racine->m_nom << std::endl;
-        std::cout << "ground : " << racine->m_bloc_enfant[0]->m_nom << std::endl;
-        std::cout << "robot : " << racine->m_bloc_enfant[0]->m_bloc_enfant[0]->m_nom << std::endl;
-        std::cout << "box : " << racine->m_bloc_enfant[1]->m_nom << std::endl;
-        std::cout << "flower : " << racine->m_bloc_enfant[1]->m_bloc_enfant[0]->m_nom << std::endl;
+//        std::cout << std::endl << ListeBlocs[0]->m_nom << std::endl;
+//        std::cout << ListeBlocs[0]->m_x1 << std::endl;
+//        std::cout << ListeBlocs[0]->m_y1 << std::endl;
+//        std::cout << ListeBlocs[0]->m_couleur << std::endl;
+//        std::cout << "racine : " << racine->m_nom << std::endl;
+//        std::cout << "ground : " << racine->m_bloc_enfant[0]->m_nom << std::endl;
+//        std::cout << "robot : " << racine->m_bloc_enfant[0]->m_bloc_enfant[0]->m_nom << std::endl;
+//        std::cout << "box : " << racine->m_bloc_enfant[1]->m_nom << std::endl;
+//        std::cout << "flower : " << racine->m_bloc_enfant[1]->m_bloc_enfant[0]->m_nom << std::endl;
     }
 }
 
 
-Bloc* Bloc::store() ///Ne fonctionne pas correctement
+Bloc* store(Bloc* racine) ///Ne fonctionne pas correctement
 {
-    Bloc* copie = new Bloc{m_largeur,m_hauteur,m_x1,m_y1,m_nom,m_couleur};
-    Bloc* buffer, adresse;
+    Bloc* copie = new Bloc{racine->GetLargeur(),racine->GetHauteur(),racine->GetX1(),racine->GetY1(),
+                racine->GetNom(),racine->GetCouleur(),racine->GetRefpos(),racine->GetBasepos()};
 
-    for(size_t i=0; i<m_bloc_enfant.size(); ++i)
+    for(size_t i=0; i<racine->GetBlocsEnf().size(); ++i)
     {
-        buffer=m_bloc_enfant[i]->store();
-        copie->SetBlocsEnf(buffer);
+        copie->SetBlocsEnf(racine->GetBlocsEnf()[i]);
     }
 
     return copie;

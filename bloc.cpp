@@ -1,10 +1,10 @@
 #include "bloc.h"
 #include "header.h"
 
-Bloc::Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur) :
-    m_largeur{largeur},m_hauteur{hauteur},m_x1{x},m_y1{y},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr)
-{
-}
+Bloc::Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur,std::string rp,std::string bp) :
+    m_largeur{largeur},m_hauteur{hauteur},m_x1{x},m_y1{y},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr),
+    refpos{rp},basepos{bp},x_refpos{0},y_refpos{0}
+{}
 
 ///Refpos basepos
 Bloc::Bloc(double largeur,double hauteur,std::string nom,std::string couleur) :
@@ -70,6 +70,16 @@ std::vector<Bloc*> Bloc::GetBlocsEnf() const
     return m_bloc_enfant;
 }
 
+std::string Bloc::GetRefpos() const
+{
+    return refpos;
+}
+
+std::string Bloc::GetBasepos() const
+{
+    return refpos;
+}
+
 double Bloc::GetXRef() const
 {
     return x_refpos;
@@ -83,9 +93,12 @@ double Bloc::GetYRef() const
 void Bloc::SetBlocsEnf(Bloc* &aCopier)
 {
     Bloc *bloc = new Bloc(aCopier->GetLargeur(),aCopier->GetHauteur(),aCopier->GetX1(),aCopier->GetY1(),
-                          aCopier->GetNom(),aCopier->GetCouleur());
+                          aCopier->GetNom(),aCopier->GetCouleur(),aCopier->GetRefpos(),aCopier->GetBasepos());
 
     m_bloc_enfant.push_back(bloc);
+
+    for(size_t i=0;i<aCopier->GetBlocsEnf().size();++i)
+        bloc->SetBlocsEnf(aCopier->GetBlocsEnf()[i]);
 }
 
 void Bloc::SetConteneur(Bloc* conteneur)
@@ -105,12 +118,6 @@ void Bloc::SetYRefpos(double valeur)
     y_refpos+=valeur;
     for(size_t i=0;i<m_bloc_enfant.size();++i)
         m_bloc_enfant[i]->SetYRefpos(valeur);
-}
-
-void Bloc::ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep)
-{
-    Bloc *bloc = new Bloc(largeur,hauteur,nom,couleur,refp,basep);
-    m_bloc_enfant.push_back(bloc);
 }
 
 void Bloc::afficher(Svgfile& output, bool racine)
@@ -197,6 +204,7 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
     int a=-1;
     int b=-1;
     int d=-1;
+    int e=-1;
     int i=0;
     int somme=0;
     int c1=0,c2=0,c3=0;
@@ -215,10 +223,11 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
             {
                 b=mots[i].find("move");
                 d=mots[i].find("rotate");
-                if (b!=-1||d!=-1)
+                e=mots[i].find("stretch");
+                if (b!=-1||d!=-1||e!=-1)
                     break;
             }
-            if(b!=-1||d!=-1)
+            if(b!=-1||d!=-1||e!=-1)
             {
                 if(taille>i+1)
                 {
@@ -261,6 +270,11 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                                     ///programme deplacement selon la position actuel avec 'somme' rotate
                                     std::cout<<mots[i+1][0]<<somme<<" rotate"<<std::endl;
                                 }
+                                if(e!=-1)
+                                {
+                                    ///programme d'etirement selon la position actuel avec 'somme' stretch
+                                    (*it_bloc)->etirer(somme);
+                                }
                             }
                         }
                     }
@@ -298,6 +312,11 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                                 {
                                     ///programme deplacement selon la position actuel avec 'somme' rotate
                                     std::cout<<somme<<" rotate"<<std::endl;
+                                }
+                                if(e!=-1)
+                                {
+                                    ///programme d'etirement selon la position actuel avec 'somme' stretch
+                                    (*it_bloc)->etirer(somme);
                                 }
                             }
                         }
@@ -523,6 +542,123 @@ void Bloc::calcule_xy_ref_base_pos()
     }
 }
 
+///Etirer
+void Bloc::etirer(double valeur)
+{
+    std::string choix;
+    int i=0;
+    bool stop=0;
+
+    std::cout << "largeur ou hauteur : ";
+    getline(std::cin,choix);
+
+    if(choix=="largeur" && valeur>0)
+    {
+        while(i<valeur)
+        {
+            if(m_largeur<900)
+                m_largeur+=10;
+            else
+            {
+                stop=1;
+                break;
+            }
+            i+=10;
+
+            Bloc* racine=m_conteneur;
+            while(racine->GetConteneur()!=nullptr)
+                racine=racine->GetConteneur();
+
+            Sleep(1000);
+
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+            racine->calcul_xy_de_1_a_4(1);
+            racine->afficher(svgout,1);
+        }
+    }
+    else if(choix=="largeur" && valeur<0)
+    {
+        while(i>valeur)
+        {
+            if(m_largeur>20)
+                m_largeur-=10;
+            else
+            {
+                stop=1;
+                break;
+            }
+            i-=10;
+
+            Bloc* racine=m_conteneur;
+            while(racine->GetConteneur()!=nullptr)
+                racine=racine->GetConteneur();
+
+            Sleep(1000);
+
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+            racine->calcul_xy_de_1_a_4(1);
+            racine->afficher(svgout,1);
+        }
+    }
+    else if(choix=="hauteur" && valeur>0)
+    {
+        while(i<valeur)
+        {
+            if(m_hauteur<500)
+                m_hauteur+=10;
+            else
+            {
+                stop=1;
+                break;
+            }
+            i+=10;
+
+            Bloc* racine=m_conteneur;
+            while(racine->GetConteneur()!=nullptr)
+                racine=racine->GetConteneur();
+
+            Sleep(1000);
+
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+            racine->calcul_xy_de_1_a_4(1);
+            racine->afficher(svgout,1);
+        }
+    }
+    else if(choix=="hauteur" && valeur<0)
+    {
+        while(i>valeur)
+        {
+            if(m_hauteur>20)
+                m_hauteur-=10;
+            else
+            {
+                stop=1;
+                break;
+            }
+            i-=10;
+
+            Bloc* racine=m_conteneur;
+            while(racine->GetConteneur()!=nullptr)
+                racine=racine->GetConteneur();
+
+            Sleep(1000);
+
+            Svgfile::s_verbose = false;
+            Svgfile svgout;
+            racine->calcul_xy_de_1_a_4(1);
+            racine->afficher(svgout,1);
+        }
+    }
+    if(stop==1)
+    {
+        std::cout << m_nom <<" ne peut davantage s'etirer/se contracter" << std::endl;
+        std::cout<<i<<" etire"<<std::endl;
+    }
+    else std::cout<<valeur<<" etire"<<std::endl;
+}
 
 
 ///Bloc mobile
@@ -538,6 +674,7 @@ BlocMobile::BlocMobile(double largeur,double hauteur,std::string nom,std::string
 void BlocMobile::avancer(double valeur)
 {
     double j=0;
+    bool stop=0;
 
     if(valeur>0) ///Si avance
     {
@@ -545,16 +682,32 @@ void BlocMobile::avancer(double valeur)
         {
             if(m_direction=="h")
             {
-                x_refpos+=m_vitesse;
-                for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->SetXRefpos(m_vitesse);
+                if(m_x2 <= m_conteneur->GetX1()+m_conteneur->GetLargeur())
+                {
+                    x_refpos+=m_vitesse;
+                    for(size_t i=0;i<m_bloc_enfant.size();++i)
+                        m_bloc_enfant[i]->SetXRefpos(m_vitesse);
+                }
+                else
+                {
+                    stop=1;
+                    break;
+                }
 
             }
             else if(m_direction=="v")
             {
-                y_refpos+=m_vitesse;
-                for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->SetYRefpos(m_vitesse);
+                if(m_y3 <= m_conteneur->GetY1()+m_conteneur->GetHauteur())
+                {
+                    y_refpos+=m_vitesse;
+                    for(size_t i=0;i<m_bloc_enfant.size();++i)
+                        m_bloc_enfant[i]->SetYRefpos(m_vitesse);
+                }
+                else
+                {
+                    stop=1;
+                    break;
+                }
             }
             j+=m_vitesse;
 
@@ -576,16 +729,32 @@ void BlocMobile::avancer(double valeur)
         {
             if(m_direction=="h")
             {
-                x_refpos-=m_vitesse;
-                for(size_t i=0;i<m_bloc_enfant.size();++i)
+                if(m_x1 >= m_conteneur->GetX1())
+                {
+                    x_refpos-=m_vitesse;
+                    for(size_t i=0;i<m_bloc_enfant.size();++i)
                     m_bloc_enfant[i]->SetXRefpos(-1*m_vitesse);
+                }
+                else
+                {
+                    stop=1;
+                    break;
+                }
 
             }
             else if(m_direction=="v")
             {
-                y_refpos-=m_vitesse;
-                for(size_t i=0;i<m_bloc_enfant.size();++i)
-                    m_bloc_enfant[i]->SetYRefpos(-1*m_vitesse);
+                if(m_y1 >= m_conteneur->GetY1())
+                {
+                    y_refpos-=m_vitesse;
+                    for(size_t i=0;i<m_bloc_enfant.size();++i)
+                        m_bloc_enfant[i]->SetYRefpos(-1*m_vitesse);
+                }
+                else
+                {
+                    stop=1;
+                    break;
+                }
             }
 
             j-=m_vitesse;
@@ -602,8 +771,13 @@ void BlocMobile::avancer(double valeur)
             racine->afficher(svgout,1);
         }
     }
-
-    std::cout<<valeur<<" move"<<std::endl;
+    ///Blindage : le bloc ne va pas plus loin que la surface de son parent
+    if(stop==1)
+    {
+        std::cout << m_nom <<" ne peut pas aller plus loin !" << std::endl;
+        std::cout<<j<<" move"<<std::endl;
+    }
+    else std::cout<<valeur<<" move"<<std::endl;
 }
 
 void Bloc::rulers(Svgfile& svgout) const
