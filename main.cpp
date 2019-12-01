@@ -3,6 +3,7 @@
 #include "coord.h"
 #include "header.h"
 #include "svgfile.h"
+#include"moteurGraph.h"
 
 void menu()
 {
@@ -34,6 +35,7 @@ void menu()
             getline(std::cin,nom_fichier);
             lireFichier(racine,nom_fichier);
             racine->calcul_xy_de_1_a_4(1);
+            //MoteurGraph::calculerPoid(*racine,1);
             std::cout<<nom_fichier<<" loaded"<<std::endl;
         }
         else if(menu=="reload")
@@ -110,6 +112,8 @@ void menu()
             std::copy(std::istream_iterator<std::string>(ligne), std::istream_iterator<std::string>(), std::back_inserter(mots));   ///s�pare les mots dans un vector
 
             racine->commandedeplacement(mots);
+            //MoteurGraph::detecterColision(*racine);
+            racine->collisions();
         }
         else
             std::cout << "Saisie invalide\n";
@@ -120,7 +124,7 @@ void menu()
             Svgfile::s_verbose = false;
             Svgfile svgout;
             racine->calcul_xy_de_1_a_4(0); // Initialise les point d'attache
-            racine->collisions();
+
             if(ids==1)
                 racine->afficherIds(svgout,1);
             else if(ids==0)

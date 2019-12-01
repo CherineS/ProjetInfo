@@ -22,6 +22,7 @@ class Bloc
         virtual void ajouterbloc(double largeur,double hauteur,std::string nom,std::string couleur, std::string refp, std::string basep);
         virtual void commandedeplacement(std::vector<std::string>& mots);
         ///void collisions();
+        virtual void collisions();
 
         ///getters
         virtual Bloc* GetConteneur() const;
@@ -34,12 +35,14 @@ class Bloc
         virtual std::vector<Bloc*> GetBlocsEnf() const;
         virtual double GetXRef() const;
         virtual double GetYRef() const;
+        virtual double GetPoid() const;
 
         ///setters
         virtual void SetConteneur(Bloc* conteneur);
         virtual void SetBlocsEnf(Bloc* &aCopier);
         virtual void SetXRefpos(double valeur);
         virtual void SetYRefpos(double valeur);
+        virtual void SetPoid(double poid);
 
         virtual void afficherIds(Svgfile& output, bool racine);
         virtual void afficher(Svgfile& output, bool racine);
@@ -48,7 +51,7 @@ class Bloc
         virtual Bloc* store();
         virtual void avancer(double valeur);
         virtual void rulers(Svgfile& svgout) const;
-        virtual void collisions();
+
 
     protected:
         double m_largeur;
@@ -57,6 +60,7 @@ class Bloc
         double m_x2; // x2 = x4
         double m_y1; // y1 = y2
         double m_y3; // y3 = y4
+        double m_poid;
 
         std::string m_nom;
         std::string m_couleur;
