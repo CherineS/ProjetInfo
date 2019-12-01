@@ -3,15 +3,15 @@
 
 <polygon points=" 0,0 900,0 900,500 0,500" style="fill:lightblue;stroke:black;stroke-width:0.15" />
 <polygon points=" -10,490 910,490 910,510 -10,510" style="fill:darkgrey;stroke:black;stroke-width:0.1" />
-<polygon points=" 350,340 450,340 450,490 350,490" style="fill:white;stroke:black;stroke-width:0.1" />
-<polygon points=" 360,290 440,290 440,340 360,340" style="fill:lightgrey;stroke:black;stroke-width:0.1" />
-<polygon points=" 350,340 450,340 450,350 350,350" style="fill:darkblue;stroke:black;stroke-width:0.1" />
-<polygon points=" 440,295 455,295 455,335 440,335" style="fill:grey;stroke:black;stroke-width:0.1" />
-<polygon points=" 425,375 450,375 450,455 425,455" style="fill:orange;stroke:black;stroke-width:0.1" />
-<polygon points=" 400,395 470,395 470,415 400,415" style="fill:darkblue;stroke:black;stroke-width:0.1" />
-<polygon points=" 470,392.5 482,392.5 482,417.5 470,417.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
-<polygon points=" 470,380.5 495,380.5 495,392.5 470,392.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
-<polygon points=" 470,417.5 495,417.5 495,429.5 470,429.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 430,270 450,270 450,490 430,490" style="fill:white;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,220 480,220 480,270 400,270" style="fill:lightgrey;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,270 490,270 490,280 390,280" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,225 495,225 495,265 480,265" style="fill:grey;stroke:black;stroke-width:0.1" />
+<polygon points=" 425,340 450,340 450,420 425,420" style="fill:orange;stroke:black;stroke-width:0.1" />
+<polygon points=" 440,360 510,360 510,380 440,380" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 510,357.5 522,357.5 522,382.5 510,382.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 510,345.5 535,345.5 535,357.5 510,357.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
+<polygon points=" 510,382.5 535,382.5 535,394.5 510,394.5" style="fill:darkblue;stroke:black;stroke-width:0.1" />
 <polygon points=" 860,450 910,450 910,490 860,490" style="fill:red;stroke:black;stroke-width:0.1" />
 <polygon points=" 860,465 910,465 910,475 860,475" style="fill:green;stroke:black;stroke-width:0.1" />
 <polygon points=" 880,450 890,450 890,490 880,490" style="fill:green;stroke:black;stroke-width:0.1" />
@@ -34,12 +34,12 @@
 <polygon points=" 117.5,200 132.5,200 132.5,240 117.5,240" style="fill:white;stroke:black;stroke-width:0.1" />
 <circle cx="125" cy="192.5" r="7.5" fill="red" />
 <circle cx="125" cy="196" r="4" fill="yellow" />
-<polygon points=" 345,-30 355,-30 355,30 345,30" style="fill:brown;stroke:black;stroke-width:0.1" />
-<polygon points=" 300,25 400,25 400,35 300,35" style="fill:brown;stroke:black;stroke-width:0.1" />
-<polygon points=" 300,35 310,35 310,75 300,75" style="fill:brown;stroke:black;stroke-width:0.1" />
-<polygon points=" 290,60 320,60 320,90 290,90" style="fill:yellow;stroke:black;stroke-width:0.1" />
-<polygon points=" 390,35 400,35 400,75 390,75" style="fill:brown;stroke:black;stroke-width:0.1" />
-<polygon points=" 380,60 410,60 410,90 380,90" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 445,-30 455,-30 455,30 445,30" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,25 500,25 500,35 400,35" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 400,35 410,35 410,75 400,75" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 390,60 420,60 420,90 390,90" style="fill:yellow;stroke:black;stroke-width:0.1" />
+<polygon points=" 490,35 500,35 500,75 490,75" style="fill:brown;stroke:black;stroke-width:0.1" />
+<polygon points=" 480,60 510,60 510,90 480,90" style="fill:yellow;stroke:black;stroke-width:0.1" />
 
 
 </svg>

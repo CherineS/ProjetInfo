@@ -256,7 +256,7 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                             {
                                 somme=100*c1+10*c2+c3;
                             }
-                            if(somme>=-100&&somme<=100)
+                            if(somme>=-500&&somme<=500)
                             {
                                 if((mots[i+1][0]=='-'))
                                     somme=-1*somme;
@@ -301,7 +301,7 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
                                 somme=100*c1+10*c2+c3;
 
                             }
-                            if(somme>=0&&somme<=100)
+                            if(somme>=0&&somme<=500)
                             {
                                 if(b!=-1)
                                 {
