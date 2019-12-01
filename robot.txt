@@ -36,10 +36,10 @@ room 900 500 lightblue tl tl /
 				]
 			]
 		]
-	shelf 250 20 brown ml ml v 15
+	shelf1 250 20 brown ml ml v 15
 		[ ball 50 0 peru tr br /
-		book1 20 60 darkred tl bl h 15
-			[ book2 20 40 green br bl /
+		shelf2 20 60 darkred tl bl h 15
+			[ book 20 40 green br bl /
 			]
 		candle 15 40 white tc bc /
 			[ fire 15 0 red tc bc /

@@ -35,7 +35,7 @@ int main()
 
         if(menu=="load")
         {
-            std::cout<<"entrer le nom du ficher (nom_fichier.rom)"<<std::endl;
+            std::cout<<"entrer le nom du fichier (nom_fichier.rom)"<<std::endl;
             getline(std::cin,nom_fichier);
             lireFichier(racine,nom_fichier);
             racine->calcul_xy_de_1_a_4(1);

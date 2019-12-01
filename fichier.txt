@@ -1,8 +1,3 @@
-room 100 100 600 400 lightblue
-[ ground 80 500 660 10 darkgrey
-[ robot 250 250 50 50 black
-]
-box 400 350 50 20 brown
-[ flower 400 300 20 0 red
-]
-[ blabla 500 400 40 50 blue
+
+room 900 500 lightblue tl tl /
+	[ ground 920 20 darkgrey bc tc /
