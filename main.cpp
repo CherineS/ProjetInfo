@@ -112,8 +112,8 @@ void menu()
             std::copy(std::istream_iterator<std::string>(ligne), std::istream_iterator<std::string>(), std::back_inserter(mots));   ///s�pare les mots dans un vector
 
             racine->commandedeplacement(mots);
-            //MoteurGraph::detecterColision(*racine);
-            racine->collisions();
+            MoteurGraph::detecterColision(*racine);
+            //racine->collisions();
         }
         else
             std::cout << "Saisie invalide\n";

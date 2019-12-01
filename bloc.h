@@ -51,6 +51,7 @@ class Bloc
         virtual Bloc* store();
         virtual void avancer(double valeur);
         virtual void rulers(Svgfile& svgout) const;
+        virtual bool estEnColisionsAvec(Bloc& b);
 
 
     protected:
@@ -77,6 +78,7 @@ class Bloc
 
 
         friend void lireFichier(Bloc*& racine, std::string& nom_fichier);
+
 };
 
 class BlocMobile : public Bloc
@@ -101,5 +103,6 @@ class BlocImmobile : public Bloc
         void avancer(double valeur);
 };
 
+bool operator==(Bloc& a, Bloc& b);
 
 #endif // BLOC_H_INCLUDED

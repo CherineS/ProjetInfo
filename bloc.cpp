@@ -85,6 +85,15 @@ double Bloc::GetYRef() const
     return y_refpos;
 }
 
+bool Bloc::estEnColisionsAvec(Bloc& b)
+{
+ return m_x1 > b.m_x1 + b.m_largeur &&
+   m_x1 + m_largeur < b.m_x1 &&
+   m_y1 < b.m_y1 + b.m_hauteur &&
+   m_hauteur + m_y1 > b.m_y1;
+}
+
+
 void Bloc::SetBlocsEnf(Bloc* &aCopier)
 {
     Bloc *bloc = new Bloc(aCopier->GetLargeur(),aCopier->GetHauteur(),aCopier->GetX1(),aCopier->GetY1(),
@@ -661,3 +670,13 @@ void BlocImmobile::avancer(double valeur)
 {
     std::cout << "Un bloc immobile ne peut pas se deplacer !" << std::endl;
 }
+
+
+
+///
+
+bool operator==(Bloc& a, Bloc& b)
+{
+    return a.estEnColisionsAvec(b);
+}
+
