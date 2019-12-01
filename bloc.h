@@ -21,6 +21,7 @@ class Bloc
 
         virtual void commandedeplacement(std::vector<std::string>& mots);
         ///void collisions();
+        virtual void collisions();
 
         ///getters
         virtual Bloc* GetConteneur() const;
@@ -35,12 +36,14 @@ class Bloc
         virtual std::string GetBasepos() const;
         virtual double GetXRef() const;
         virtual double GetYRef() const;
+        virtual double GetPoid() const;
 
         ///setters
         virtual void SetConteneur(Bloc* conteneur);
         virtual void SetBlocsEnf(Bloc* &aCopier);
         virtual void SetXRefpos(double valeur);
         virtual void SetYRefpos(double valeur);
+        virtual void SetPoid(double poid);
 
         virtual void afficherIds(Svgfile& output, bool racine);
         virtual void afficher(Svgfile& output, bool racine);
@@ -48,8 +51,9 @@ class Bloc
         virtual void calcul_xy_de_1_a_4(bool reload);
         virtual void avancer(double valeur);
         virtual void rulers(Svgfile& svgout) const;
-        virtual void collisions();
         void etirer(double valeur);
+        virtual bool estEnColisionsAvec(Bloc& b);
+
 
     protected:
         double m_largeur;
@@ -58,6 +62,7 @@ class Bloc
         double m_x2; // x2 = x4
         double m_y1; // y1 = y2
         double m_y3; // y3 = y4
+        double m_poid;
 
         std::string m_nom;
         std::string m_couleur;
@@ -66,7 +71,6 @@ class Bloc
 
         std::string refpos; // Point d'encrage du bloc parrent
         std::string basepos; // Point d'encrage du bloc enfant
-        std::string endpos; // Point du bloc parrent maximal d'encrage lors de la translation
 
         //Positon d'encrage
         double x_refpos;
@@ -74,6 +78,7 @@ class Bloc
 
 
         friend void lireFichier(Bloc*& racine, std::string& nom_fichier);
+
 };
 
 class BlocMobile : public Bloc
@@ -98,5 +103,6 @@ class BlocImmobile : public Bloc
         void avancer(double valeur);
 };
 
+bool operator==(Bloc& a, Bloc& b);
 
 #endif // BLOC_H_INCLUDED

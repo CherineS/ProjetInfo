@@ -106,3 +106,59 @@
 
 1575056261 c:\users\asus\desktop\info ing2\projet info s3\projetinfo\coord.h
 
+1575131388 source:d:\users\lucas\documents\c++\projetinfo\fichiers.cpp
+	"header.h"
+
+1575131388 d:\users\lucas\documents\c++\projetinfo\header.h
+	<iostream>
+	<vector>
+	<iterator>
+	<algorithm>
+	<string>
+	<fstream>
+	<sstream>
+	"bloc.h"
+	"svgfile.h"
+	<windows.h>
+
+1575238268 d:\users\lucas\documents\c++\projetinfo\bloc.h
+	<iostream>
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+	"svgfile.h"
+	<map>
+
+1575080879 d:\users\lucas\documents\c++\projetinfo\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
+1575238378 source:d:\users\lucas\documents\c++\projetinfo\main.cpp
+	<iostream>
+	"bloc.h"
+	"coord.h"
+	"header.h"
+	"svgfile.h"
+	"moteurGraph.h"
+
+1575131388 d:\users\lucas\documents\c++\projetinfo\coord.h
+
+1575080879 source:d:\users\lucas\documents\c++\projetinfo\svgfile.cpp
+	"svgfile.h"
+	<iostream>
+	<sstream>
+
+1575238323 source:d:\users\lucas\documents\c++\projetinfo\bloc.cpp
+	"bloc.h"
+	"header.h"
+
+1575237554 source:d:\users\lucas\documents\c++\projetinfo\moteurgraph.cpp
+	"moteurGraph.h"
+
+1575210511 d:\users\lucas\documents\c++\projetinfo\moteurgraph.h
+	"bloc.h"
+	<iostream>
+	<string>
+

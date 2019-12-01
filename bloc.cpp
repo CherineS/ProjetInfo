@@ -2,25 +2,25 @@
 #include "header.h"
 
 Bloc::Bloc(double largeur,double hauteur,double x,double y,std::string nom,std::string couleur,std::string rp,std::string bp) :
-    m_largeur{largeur},m_hauteur{hauteur},m_x1{x},m_y1{y},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr),
+    m_largeur{largeur},m_hauteur{hauteur},m_x1{x},m_y1{y},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr), m_poid(hauteur*largeur)
     refpos{rp},basepos{bp},x_refpos{0},y_refpos{0}
 {}
 
 ///Refpos basepos
 Bloc::Bloc(double largeur,double hauteur,std::string nom,std::string couleur) :
     m_largeur{largeur},m_hauteur{hauteur},m_x1{0},m_y1{0},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr),
-    refpos{"tl"},basepos{"tl"},x_refpos{0},y_refpos{0}
+    refpos{"tl"},basepos{"tl"},x_refpos{0},y_refpos{0},  m_poid(hauteur*largeur)
 {
 }
 
 Bloc::Bloc(double largeur,double hauteur,std::string nom,std::string couleur,std::string rp,std::string bp) :
     m_largeur{largeur},m_hauteur{hauteur},m_x1{0},m_y1{0},m_nom{nom},m_couleur{couleur}, m_conteneur(nullptr),
-    refpos{rp},basepos{bp},x_refpos{0},y_refpos{0}
+    refpos{rp},basepos{bp},x_refpos{0},y_refpos{0} ,  m_poid(hauteur*largeur)
 {
 }
 
 
-Bloc::Bloc() : m_largeur{0},m_hauteur{0},m_x1{0},m_y1{0},m_nom{"vide"},m_couleur{"noir"}, m_conteneur(nullptr)
+Bloc::Bloc() : m_largeur{0},m_hauteur{0},m_x1{0},m_y1{0},m_nom{"vide"},m_couleur{"noir"}, m_conteneur(nullptr) ,  m_poid(0)
 {
 }
 
@@ -53,6 +53,11 @@ double Bloc::GetY1() const
 double Bloc::GetLargeur() const
 {
     return m_largeur;
+}
+
+double Bloc::GetPoid() const
+{
+    return m_poid;
 }
 
 double Bloc::GetHauteur() const
@@ -90,6 +95,15 @@ double Bloc::GetYRef() const
     return y_refpos;
 }
 
+bool Bloc::estEnColisionsAvec(Bloc& b)
+{
+ return m_x1 > b.m_x1 + b.m_largeur &&
+   m_x1 + m_largeur < b.m_x1 &&
+   m_y1 < b.m_y1 + b.m_hauteur &&
+   m_hauteur + m_y1 > b.m_y1;
+}
+
+
 void Bloc::SetBlocsEnf(Bloc* &aCopier)
 {
     Bloc *bloc = new Bloc(aCopier->GetLargeur(),aCopier->GetHauteur(),aCopier->GetX1(),aCopier->GetY1(),
@@ -118,6 +132,11 @@ void Bloc::SetYRefpos(double valeur)
     y_refpos+=valeur;
     for(size_t i=0;i<m_bloc_enfant.size();++i)
         m_bloc_enfant[i]->SetYRefpos(valeur);
+}
+
+void Bloc::SetPoid(double poid)
+{
+    m_poid = poid;
 }
 
 void Bloc::afficher(Svgfile& output, bool racine)
@@ -331,27 +350,30 @@ void Bloc::commandedeplacement(std::vector<std::string>& mots)
 
 
 ///Collisions
+
+
 void Bloc::collisions()
 {
     for(size_t i=0; i<m_bloc_enfant.size();++i)
     {
-        for(size_t j=0; j<m_bloc_enfant.size();++j)
+
+        for(size_t j=0; j<m_bloc_enfant[i]->m_bloc_enfant.size();++j)
         {
             ///On ne considere pas les collisions avec lui meme et ses enfants
-            if(i!=j)
-            {
-                ///Si le bloc se deplace en x
-                if(m_bloc_enfant[j]->GetX1()<m_bloc_enfant[i]->GetX1() && m_bloc_enfant[i]->GetX1()<m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur())
-                {
+
+                ///Si le bloc se deplace en x (Condition modifier)
+                if(m_bloc_enfant[i]->GetX1() > m_bloc_enfant[i]->m_bloc_enfant[j]->GetX1()+ m_bloc_enfant[i]->m_bloc_enfant[j]->GetLargeur() &&
+                    m_bloc_enfant[i]->GetX1() + m_bloc_enfant[i]->GetHauteur() < m_bloc_enfant[i]->m_bloc_enfant[j]->GetX1() )
+                { //Colisoon detecter
                     ///Si son aire est plus importante, elle pousse, sinon elle ne bouge pas
-                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
-                        m_bloc_enfant[j]->SetXRefpos(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur()-m_bloc_enfant[i]->GetX1());
+                    if(m_bloc_enfant[i]->GetPoid() > m_bloc_enfant[i]->m_bloc_enfant[j]->GetPoid())
+                        {
+                            std::cout << "colision";
+                             m_bloc_enfant[i]->m_bloc_enfant[j]->SetXRefpos(m_bloc_enfant[i]->m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur()-m_bloc_enfant[i]->GetX1());
+                        }
+
                 }
-                else if(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur() > m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur() && m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur() > m_bloc_enfant[i]->GetX1())
-                {
-                    if((m_bloc_enfant[i]->GetLargeur()*m_bloc_enfant[i]->GetHauteur())>(m_bloc_enfant[j]->GetLargeur()*m_bloc_enfant[j]->GetHauteur()))
-                        m_bloc_enfant[j]->SetXRefpos(m_bloc_enfant[j]->GetX1()+m_bloc_enfant[j]->GetLargeur()-m_bloc_enfant[i]->GetX1()+m_bloc_enfant[i]->GetLargeur());
-                }
+
 
                 ///Si le bloc se deplace en y
                 if(m_bloc_enfant[j]->GetY1() < m_bloc_enfant[i]->GetY1() && m_bloc_enfant[i]->GetY1() < m_bloc_enfant[j]->GetY1()+m_bloc_enfant[j]->GetHauteur())
@@ -366,7 +388,7 @@ void Bloc::collisions()
                 }
             }
 
-        }
+
     }
 }
 
@@ -822,3 +844,13 @@ void BlocImmobile::avancer(double valeur)
 {
     std::cout << "Un bloc immobile ne peut pas se deplacer !" << std::endl;
 }
+
+
+
+///
+
+bool operator==(Bloc& a, Bloc& b)
+{
+    return a.estEnColisionsAvec(b);
+}
+
